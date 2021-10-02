@@ -8,12 +8,12 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    css selector 选择器 | Bright Hui
+    Lottie - 让动画的实现变得如此简单 | Bright Hui
   </title>
   <meta name="description" content="Bright Hui">
   
   <meta name="keywords" content="
-  css selector
+  lottie
   ">
   
   <meta name="author" content="Bright Hui">
@@ -150,97 +150,33 @@
     <i class="fa fa-user-o"></i>
     Bright Hui
 
-    <span class="post-date float-right" title="{{moment(1617273986000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1631357186000).format('MMM DD, YYYY, h:mm:ss A')}}">
       
           <i class="fa fa-pencil-square-o"></i>
       
-      {{moment(1617273986000).fromNow()}}
+      {{moment(1631357186000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1>css selector 选择器</h1>
-    <p>写了快两年 <code>styled-components</code> 的本宝宝，压根就用不到什么选择器了。可想而知那帮搞出 css-in-js 的工程师肯定都是不喜欢没逻辑的 css。</p>
-<p>我来复习复习，css 选择器是面试大概率会问的问题吧 😝</p>
-<h2 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h2><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>选择器</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>element</td>
-<td>element</td>
-<td>e.g. <code>div</code></td>
-</tr>
-<tr>
-<td>id</td>
-<td>#</td>
-<td></td>
-</tr>
-<tr>
-<td>class</td>
-<td>.</td>
-<td>e.g. <code>.btn</code></td>
-</tr>
-<tr>
-<td>全部</td>
-<td>*</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><p>属性选择器有以下几种语法，一般也就前两个比较常用</p>
-<ol>
-<li><code>[attr]</code> 所有包含 attr 属性的元素</li>
-<li><code>[attr=value]</code> 属性等于 xx 的元素，e.g. <code>a[target=&quot;_blank&quot;]</code></li>
-<li><code>[attr~=value]</code> 属性包含 xx 完整“单词”的元素，xx 必须是完整的<strong>“单词”</strong>，与其他用空格分开，e.g. <code>[class~=top]</code> 将会选中<code>class=&quot;abc top&quot;</code>，但不会选中<code>class=&quot;abc ttoppic&quot;</code></li>
-<li><code>[attr|=value]</code> 属性由 xx 开始的元素，e.g. <code>[class|=top]</code>，将会选中类似<code>class=&quot;top&quot;</code> <code>class=&quot;top-btn&quot;</code>的元素，value 必须是一个完整的<strong>“单词”</strong>，在这个选择器下，<code>class=&quot;topic&quot;</code><strong>不会被选中</strong></li>
-<li><code>[attr^=value]</code> 以 xx 开始的元素，类似正则 6.<code>[attr$=value]</code> 以 xx 结尾的元素，类似正则</li>
-<li><code>[attr*=value]</code> 包含 xx 的元素，与上面例 3 不同，e.g. <code>[class*=top]</code> 将会选中<code>class=&quot;abc top&quot;</code> 以及<code>class=&quot;abc ttoppic&quot;</code></li>
-</ol>
-<p>学习了以上，就会有关于<strong>引号</strong>的问题，有时候见到属性选择器中的 value 是有引号的，有时候又是没有引号的。关于引号的问题，css 中有一套规则，满足规则的情况下可以不使用引号，否则则需要使用。通常情况下，为了保险起见，就全都加上引号吧。</p>
-<h3 id="结合选择器-Combinators"><a href="#结合选择器-Combinators" class="headerlink" title="结合选择器 Combinators"></a>结合选择器 Combinators</h3><table>
-<thead>
-<tr>
-<th>选择器</th>
-<th>英文</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>div p</code></td>
-<td>desendant combinator</td>
-<td>div 里的所有 p</td>
-</tr>
-<tr>
-<td><code>div &gt; p</code></td>
-<td>child combinator</td>
-<td>div 的直接孩子 p，direct child</td>
-</tr>
-<tr>
-<td><code>div + p</code></td>
-<td>adjacent sibling combinator</td>
-<td>同一层级兄弟选择器，紧跟 div 的 p，</td>
-</tr>
-<tr>
-<td><code>div ~ p</code></td>
-<td>general sibling combinator</td>
-<td>div 的所有兄弟 p</td>
-</tr>
-</tbody></table>
-<h3 id="伪类-Pseudo-class"><a href="#伪类-Pseudo-class" class="headerlink" title="伪类 Pseudo-class"></a>伪类 Pseudo-class</h3><p>比较常用的伪类有<code>a:link,a:hover,a:visited</code>,<code>button:focus</code>, 各种 child 系列<code>:first-child, :last-child, :nth-child()</code></p>
-<h3 id="伪元素-Pseudo-element"><a href="#伪元素-Pseudo-element" class="headerlink" title="伪元素 Pseudo-element"></a>伪元素 Pseudo-element</h3><p>比较常用的有<code>::before ::after</code></p>
-<p>第一次知道居然还有这种 <code>p::first-line</code> 和这种 <code>p::first-letter</code>!简直不可思议，以及看到这两个伪元素的时候，在一次 convince 了<strong>很多事情其实并不需要 js，css 就完全可以搞定了！</strong></p>
-<p>关于伪元素的冒号问题<code>::</code>，平时写 styled-component 不管是伪类还是伪元素，都写一个冒号，但是有时候会看到有的地方是两个冒号 🤔。简单的来说</p>
-<ul>
-<li>历史原因，CSS2 中所有都是一个冒号，CSS3 中一个冒号是伪类，两个冒号是伪元素</li>
-<li>在现代浏览器（&gt;IE8）中一个冒号是伪类，两个冒号是伪元素</li>
-<li>由于大量网页仍然使用旧的写法，浏览器为了向后兼容，所以伪元素可以使用一个冒号或两个冒号，两种都可以</li>
-</ul>
-<p>虽然写一个冒号可以减少一个字节，但是如果应用本身并不兼容 IE8 及以下，那么为了让代码更清晰，个人偏向于伪元素应该使用两个冒号。</p>
+    <h1>Lottie - 让动画的实现变得如此简单</h1>
+    <h3 id="动画现状"><a href="#动画现状" class="headerlink" title="动画现状"></a>动画现状</h3><p>之前项目对动画往往是通过css自己手写/gif动画/svg动画方式，随着动画效果的日益复杂，一些动画效果存在兼容问题不说，有些也是复杂到难以实现，每次都需要花很长时间在动效的开发上<br>开发小哥哥和设计小姐姐每次都要碰撞很多次，你懂的</p>
+<p><img src="https://img.zcool.cn/community/0135425d561826a80120695c04dc42.jpg@1280w_1l_2o_100sh.jpg" alt="img"></p>
+<p>当时调研了两种方案 SVGA 和 Lottie，经过对比两种方案区别和生态，最后选择Lottie，通过官方的提供的lottie-web框架加载json动画文件，提供的方法API很灵活控制动画的播放和速率，团队开发和维护动画的效率终于大大提高了</p>
+<p><img src="https://img.zcool.cn/community/01a6135d561826a8012187f4b36b57.jpg@1280w_1l_2o_100sh.jpg" alt="img"></p>
+<h3 id="SVGA-VS-Lottie"><a href="#SVGA-VS-Lottie" class="headerlink" title="SVGA VS Lottie"></a>SVGA VS Lottie</h3><h4 id="SVGA"><a href="#SVGA" class="headerlink" title="SVGA"></a>SVGA</h4><p><a target="_blank" rel="noopener" href="http://svga.io/">http://svga.io/</a></p>
+<h4 id="Lottie"><a href="#Lottie" class="headerlink" title="Lottie"></a>Lottie</h4><p><a target="_blank" rel="noopener" href="https://lottiefiles.com/">https://lottiefiles.com/</a></p>
+<p>都是跨平台</p>
+<iframe width="100%" 
+scrolling=no 
+height="800" 
+frameborder="0" 
+src="" 
+srcdoc="<script src='//cdn.bootcdn.net/ajax/libs/lottie-web/5.7.12/lottie.min.js'></script><script src='/blog/js/demo1.js'></script>">
+</iframe>
 
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> animation = lottie.loadAnimation(&#123;</span><br><span class="line">    <span class="attr">container</span>: container,</span><br><span class="line">    <span class="attr">renderer</span>: <span class="string">&#x27;svg&#x27;</span>, <span class="comment">// 渲染方式:svg、canvas</span></span><br><span class="line">    <span class="attr">loop</span>: <span class="literal">true</span>,  <span class="comment">//循环播放，默认：false</span></span><br><span class="line">    <span class="attr">autoplay</span>: <span class="literal">true</span>, <span class="comment">//自动播放 ，默认true</span></span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/blog/json/77440-graph-diagram-animation.json&#x27;</span>  <span class="comment">// json 路径</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
   </article>
 </div>
 

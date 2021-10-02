@@ -110,13 +110,13 @@
         <a href="/blog/archives" class="header-toolbar-left"><i
                   class="fa fa-file-text"></i> Posts </a>
         <a href="/blog/archives"
-           class="header-toolbar-right"> 8 </a>
+           class="header-toolbar-right"> 9 </a>
       </li>
       <li>
         <a href="/blog/" class="header-toolbar-left"><i
                   class="fa fa-tags"></i> Tags </a>
         <a href="/blog/"
-           class="header-toolbar-right"> 8 </a>
+           class="header-toolbar-right"> 9 </a>
       </li>
       <li>
         <a href="/blog/" class="header-toolbar-left"><i
@@ -166,12 +166,12 @@
 
 <h3 id="回调地狱"><a href="#回调地狱" class="headerlink" title="回调地狱"></a>回调地狱</h3><p>可能很多新手都犯过这个错误，错的时候还不知道为啥错了…深究原因的话跟 JS 的机制有关，长篇大论的就不在这里多说了（其实是我说不清楚…）</p>
 <p>再有点经验，就会知道，应该把 <code>greeting(name)</code> 写在回调函数里，这样就能保证在得到数据之后才运行 <code>greeting()</code> 函数，于是…当你有多个请求并且之间是有这种依赖关系的时候，可怕的回调地狱就出现了！ 而解决回调地狱其中一个很优雅的方法，就是使用传说中的 promise！</p>
-<h2 id="Promise-的使用"><a href="#Promise-的使用" class="headerlink" title="Promise 的使用"></a>Promise 的使用</h2><p>关于 promise 这个概念我前前后后看了有一年了，周围也没有认识的人可以给我讲，只能自己看看网上的文章，然而…<del>并没有什么卵用</del>…网上的文章都是众说纷纭，有一上来就 defer 的<a target="_blank" rel="noopener" href="https://hiitea.io/tech/2015/12/01/promise/#fn-1">1</a>，也有一上来就说如果你还在用 defer 你就理解错了 Promise 的<a target="_blank" rel="noopener" href="https://hiitea.io/tech/2015/12/01/promise/#fn-2">2</a>，就所以我到现在也不知道究竟什么样的理解才是对的…</p>
+<h2 id="Promise-的使用"><a href="#Promise-的使用" class="headerlink" title="Promise 的使用"></a>Promise 的使用</h2><p>关于 promise 这个概念我前前后后看了有一年了，周围也没有认识的人可以给我讲，只能自己看看网上的文章，然而…<del>并没有什么卵用</del>…网上的文章都是众说纷纭，有一上来就 defer 的，也有一上来就说如果你还在用 defer 你就理解错了 Promise 的，就所以我到现在也不知道究竟什么样的理解才是对的…</p>
 <p>关于<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000002452115">Promise 以及 A+规范</a>就不在此详述了，那些概念的东东，我也还没完全理解。我想做的是让跟我一样的小白都能明白 Promise 最基本的用法。</p>
 <hr>
 <p>举个栗子… 有一个第三方提供的 API，访问 API 能够得到一些用户数据（每访问一次得到一页，假设由于某些限制一页只返回 3 个用户）以及下一页的 index；除了第一页之外，其他的页面都需要下一页的 index 参数才能访问到。（先不管这个 API 设计的合不合理…Facebook 就有这样的 API） <a target="_blank" rel="noopener" href="http://example.com/user">http://example.com/user</a> <em>–&gt;访问第一页的用户数据</em> <a target="_blank" rel="noopener" href="http://example.com/user?next=xzmca">http://example.com/user?next=xzmca</a> <em>–&gt;访问第二页的用户数据</em> 请求第一页时返回结果如下：</p>
 <p>json</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">&quot;items&quot;</span> : [&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span> : <span class="string">&quot;小白妹妹&quot;</span>,</span><br><span class="line">   <span class="attr">&quot;age&quot;</span> : <span class="number">10</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;...&#125;,</span><br><span class="line">  &#123;...&#125;],</span><br><span class="line"><span class="attr">&quot;nextPage&quot;</span> : <span class="string">&quot;xzmca&quot;</span>,</span><br><span class="line"><span class="attr">&quot;lastPage&quot;</span> : <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">&quot;items&quot;</span> : [&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span> : <span class="string">&quot;hui&quot;</span>,</span><br><span class="line">   <span class="attr">&quot;age&quot;</span> : <span class="number">10</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;...&#125;,</span><br><span class="line">  &#123;...&#125;],</span><br><span class="line"><span class="attr">&quot;nextPage&quot;</span> : <span class="string">&quot;xzmca&quot;</span>,</span><br><span class="line"><span class="attr">&quot;lastPage&quot;</span> : <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>你可能会有这样的需求：你的 APP 一次需要显示 6 个甚至更多个的用户数据。而根据之前的 API，一次只能拿到 3 个数据，那么就只能发出两次请求，并且<strong>第二次请求依赖于第一次请求的结果</strong>，由于异步的原因我们并不知道第一个请求什么时候才完成，<del>而我最初入坑时是让程序发完第一个请求后强制等 2 秒再发第二个请求我会告诉你们吗…</del></p>
 <p>下面为了方便，使用<code>setTimeout()</code>函数和<a target="_blank" rel="noopener" href="http://bluebirdjs.com/">bluebird</a>库进行说明:</p>
@@ -204,8 +204,6 @@
     <ul class="footer-social-link">
       <li>© 2021 Bright Hui</li>
       <li><a href="https://bright-hui.github.io/blog">Home</a></li>
-      
-      <li><a href="github">Github</a></li>
       
       <li><a href="weibo">Weibo</a></li>
       
