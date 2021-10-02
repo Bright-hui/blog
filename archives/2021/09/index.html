@@ -8,7 +8,7 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    categories | Bright Hui
+    Bright Hui
   </title>
   <meta name="description" content="Bright Hui">
   
@@ -99,7 +99,9 @@
 </nav>
 
 <div class="main-container">
-  <div class="container-lg">
+  
+
+<div class="container-lg">
   
 
 <div class="blog-intro">
@@ -182,10 +184,10 @@
   <ul class="clearfix">
     <li class="">
       <a href="/blog/">Overview</a></li>
-    <li class="">
+    <li class="selected">
       <a href="/blog/archives">Posts <span class="counter">8</span></a>
     </li>
-    <li class="selected">
+    <li class="">
       <a href="/blog/">Categories <span
                 class="counter">1</span></a></li>
     <li class="">
@@ -194,14 +196,36 @@
 </nav>
 
     <div class="body-secondary">
-
-      
-      
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/">programming</a><span class="category-list-count">8</span></li></ul>
-      
+      <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2021/09/01/closure/">对JS闭包(Closure)的一些理解</a></h2>
+          <p>
+             昨天无聊在 github 上看代码，看到如下片段，反正看不太懂这是在干啥，但这就是传说中的闭包了… 
+ js 
+      1   2   3   4   5         function   isType ( type )  &amp;#123;        return    function ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/closure/">closure</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/blog/categories/programming/"><i class="fa fa-folder-open"></i> programming</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1630493186000).fromNow()}}</span>
+          </div>
+        </li>
+        
+      </ul>
     </div>
   </div>
 </div>
+
 </div>
 
 <div class="footer-wrapper container">
