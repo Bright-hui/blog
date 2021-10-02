@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Cookie在前端和后端的设置 | 会令天下
+  </title>
+  <meta name="description" content="Bright Hui">
+  
+  <meta name="keywords" content="
+  promise
+  ">
+  
+  <meta name="author" content="Bright Hui">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdn.bootcdn.net/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdn.bootcdn.net/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/">Archives</a></li>
+        
+        
+        <li><a href="/">Categories</a></li>
+        
+        
+        <li><a href="/">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://z3.ax1x.com/2021/10/02/4HzCZD.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/"
+           class="header-toolbar-right"> 1 </a>
+      </li>
+      <li>
+        <a href="/" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/"
+           class="header-toolbar-right"> 1 </a>
+      </li>
+      <li>
+        <a href="/" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/"
+           class="header-toolbar-right"> 1 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">会令天下</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Bright Hui
+
+    <span class="post-date float-right" title="{{moment(1633085186000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1633085186000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Cookie在前端和后端的设置</h1>
+    <p>http 协议什么的，不知道跟通信有没有关系…作为一个科班出身的女汉子，对各种协议基本上只能说出名字，别的一窍不通=，= 所以当我知道 cookie 原来是在 header 里的时候，当时我就震惊了…</p>
+<p>在服务器端，各种框架都已经包装好了方便设置 cookie 的方法，比如 nodejs 的 express，php 的 codeignitor、laravel（我居然都被迫写过 php 了，真是逼良为娼…）</p>
+<p>为什么要了解设置 cookie 的原理呢？了解了才能在某些时候用最原始的方法来设置 cookie，比如没有框架可用的时候，以及框架提供的方法不适用于某些场景的时候。 我是在使用 laravel 设置 cookie 的时候踩了坑，现在的项目里因为要配合使用 GTM（google tag manager），所以 cookie 是不加密的 raw data，但通过 laravel 设置的 cookie 都是加密了的。于是只能学习 PHP 原生的添加 cookie 方法。<code>setcookie(NAME, VALUE, EXPIRES)</code></p>
+<p>另外就是因为用 AWS API Gateway 时候的一些需求，想要通过 gateway 直接设置 cookie，这个时候就不得不了解 http cookie 的运作方式。</p>
+<h3 id="response-cookie-从服务器端返回新-cookie"><a href="#response-cookie-从服务器端返回新-cookie" class="headerlink" title="response cookie 从服务器端返回新 cookie"></a>response cookie 从服务器端返回新 cookie</h3><p>设置 cookie 是通过在响应的头部加入<code>Set-Cookie</code>来设置的，</p>
+<blockquote>
+<ul>
+<li>一个请求通常包含 header 和 body</li>
+</ul>
+</blockquote>
+<ul>
+<li>与请求有关的 cookie 分为 request cookie 和 response cookie<ul>
+<li>request cookie 是浏览器已储存的 cookie</li>
+<li>response cookie 是服务器端返回的新的 cookie，也就是将会储存在浏览器端的新 cookie</li>
+</ul>
+</li>
+</ul>
+<h4 id="一个完整的-cookie-header"><a href="#一个完整的-cookie-header" class="headerlink" title="一个完整的 cookie header"></a>一个完整的 cookie header</h4><p>一个完整的 cookie 头长这样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: NAME=VALUE; expires=DATE; path=PATH; domain=DOMAIN</span><br></pre></td></tr></table></figure>
+
+<p>NAME VALUE 是一对键值 expires 是过期日期，通常用当前时间的毫秒数加上一段时间：<code>new Date().getTime()+30*24*60*60*1000)</code>，然后<strong>需要调用<code>toUTCString()</code>方法</strong> 如果不设置 expires，在浏览器中这个 cookie 将被当做 session 对待，也就是关闭了浏览器 cookie 就消失 path 和 domain 这个…感觉不太用得到，具体可以看<a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_70c4d9410100z3il.html">这篇文章</a></p>
+<p>如果要同时设置多个 cookie，同时返回多个<code>Set-Cookie</code>头即可</p>
+<h4 id="maxAge"><a href="#maxAge" class="headerlink" title="maxAge"></a>maxAge</h4><p>有一些服务器端的框架会提供 maxAge 属性来设置 cookie 的过期时间，但是原始的 Set-Cookie 头是不支持 maxAge 的，所以在通过头部来设置 cookie 还是乖乖用回 expires 吧</p>
+<h3 id="浏览器端读取-cookie"><a href="#浏览器端读取-cookie" class="headerlink" title="浏览器端读取 cookie"></a>浏览器端读取 cookie</h3><p>JS 原生方法：</p>
+<p>js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cookies = <span class="built_in">document</span>.cookie;</span><br></pre></td></tr></table></figure>
+
+<p>读取的 cookie 是一个分号分隔的包含所有 cookie 键值字符串，可以通过正则表达式来提取需要的 cookie</p>
+<p>js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cookieA = <span class="built_in">document</span>.cookie.replace(</span><br><span class="line">  <span class="regexp">/(?:(?:^|.*;\s*)cookieA\s*\=\s*([^;]*).*$)|^.*$/</span>,</span><br><span class="line">  <span class="string">&#x27;$1&#x27;</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="request-cookie-浏览器端设置-cookie"><a href="#request-cookie-浏览器端设置-cookie" class="headerlink" title="request cookie 浏览器端设置 cookie"></a>request cookie 浏览器端设置 cookie</h3><p>js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie = <span class="string">&#x27;cookie_example=123&#x27;</span> + <span class="string">&#x27;;expires=&#x27;</span> + expire + <span class="string">&#x27;;path=/&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>如果要设置多个 cookie，多次调用<code>document.cookie</code>即可</p>
+<h4 id="document-cookie"><a href="#document-cookie" class="headerlink" title="document.cookie"></a>document.cookie</h4><p>这个 document 的 behavior 有点奇怪，明明返回的是个字符串，本来以为每次设置 cookie 得用新的字符串连接旧的字符串，但其实直接等于新的值也并不会覆盖旧的值，不知道实现这个属性&amp;方法混用的原理是什么 0,0</p>
+<h4 id="NOTE-通常设置-cookie-的时候都会把-path-设置为-，这样同一个域名下，所有路径都共用一个-cookie-如果没有设置-path，某些框架可能默认会使用创建-cookie-时的路径作为-path，这样就可能存在多个-path-不同的同名-cookie。"><a href="#NOTE-通常设置-cookie-的时候都会把-path-设置为-，这样同一个域名下，所有路径都共用一个-cookie-如果没有设置-path，某些框架可能默认会使用创建-cookie-时的路径作为-path，这样就可能存在多个-path-不同的同名-cookie。" class="headerlink" title="NOTE 通常设置 cookie 的时候都会把 path 设置为/，这样同一个域名下，所有路径都共用一个 cookie 如果没有设置 path，某些框架可能默认会使用创建 cookie 时的路径作为 path，这样就可能存在多个 path 不同的同名 cookie。"></a>NOTE 通常设置 cookie 的时候都会把 path 设置为<code>/</code>，这样同一个域名下，所有路径都共用一个 cookie 如果没有设置 path，某些框架可能默认会使用创建 cookie 时的路径作为 path，这样就可能存在多个 path 不同的同名 cookie。</h4><h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><ul>
+<li>在浏览器端，可以使用 chrome 的扩展<em>EditThisCookie</em>来查看和编辑 cookie</li>
+<li>如果是从服务器端写入的 cookie，可以在 F12 network 选项卡中选中请求，有 cookie 的时候会有一个 cookie 选项，能看到 request cookie 和 response cookie</li>
+</ul>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="http://example.com" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2021 Bright Hui</li>
+      <li><a href="http://example.com">Home</a></li>
+      
+    </ul>
+    </ul>
+    <div class="footer-theme-info" style="display: none;">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>
