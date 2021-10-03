@@ -22,11 +22,7 @@
 
   <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
   <link rel="stylesheet" href="/blog/css/main.css">
-  <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!---->
-
-  <!---->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <script src="//cdn.bootcdn.net/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
   <script src="//cdn.bootcdn.net/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
@@ -110,9 +106,6 @@
     <div class="user-name">
       <div class="blog-title">Bright Hui</div>
       <div class="blog-author"></div>
-<!--      <div style="font-size: 16px;margin-top: 6px;">-->
-<!--        I'm eager to bright my good technology!-->
-<!--      </div>-->
         <ul class="user-detail mobile-only">
     
     <li>
@@ -214,6 +207,48 @@
         Tags <span class="counter">11</span></a></li>
   </ul>
 </nav>
+
+    <link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/aplayer/1.9.1/APlayer.min.css">
+<style>
+    #aplayer {
+        margin-top: 15px;
+    }
+</style>
+<div id="aplayer">
+    <pre class="aplayer-lrc-content">
+                [00:00.00]Jar Of Love
+[00:00.08]演唱：曲婉婷
+[00:00.22]
+[00:01.00]Another sunrise, another sunset
+[00:05.10]Soon it'll all be yesterday
+[00:08.33]Another good day, another bad day,
+[00:12.77]What did you do today?
+[00:15.95]Why do we choose to chase what we'll lose?
+[00:19.77]What you want isn't what you have.
+[00:23.34]What you have may not be yours, to keep.
+[00:31.29]If I could find love, at a stop, in a park with open arms,
+            </pre>
+</div>
+<script src="//cdn.bootcdn.net/ajax/libs/aplayer/1.9.1/APlayer.min.js"></script>
+
+<script>
+    const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        theme: '#F57F17',
+        mini: false,
+        narrow: false,
+        autoplay: false,
+        showlrc: true,
+        audio: [{
+            title: 'Jar Of Love',
+            author: '_Re-梦_',
+            url: 'http://demo.lanrenzhijia.com/demo/50/5083/demo/aa.mp3',
+            pic: 'http://demo.lanrenzhijia.com/demo/50/5083/demo/zz.jpg',
+            theme: '#ebd0c2'
+        }]
+    });
+    ap.play();
+</script>
 
     <div style="border: 1px solid rgb(208, 215, 222);border-radius: 6px;margin-top: 24px;padding: 24px;">
       <h4 style="margin-top: 5px;font-size: 12px;color: #585d62;">Bright-Hui / README.md</h4>

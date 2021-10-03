@@ -904,6 +904,7 @@ pre {
     clear: both;
     font-size: 12px;
     margin: 8px 0 0 0;
+    padding-top: 10px;
   }
 }
 .blog-detail {
