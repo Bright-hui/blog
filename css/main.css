@@ -774,6 +774,7 @@ pre {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
+  border: 2px solid #d0d7de;
 }
 @media (max-width: 414px) {
   .blog-intro .avatar {

@@ -110,19 +110,19 @@
         <a href="/blog/archives" class="header-toolbar-left"><i
                   class="fa fa-file-text"></i> Posts </a>
         <a href="/blog/archives"
-           class="header-toolbar-right"> 9 </a>
+           class="header-toolbar-right"> 13 </a>
       </li>
       <li>
         <a href="/blog/" class="header-toolbar-left"><i
                   class="fa fa-tags"></i> Tags </a>
         <a href="/blog/"
-           class="header-toolbar-right"> 9 </a>
+           class="header-toolbar-right"> 11 </a>
       </li>
       <li>
         <a href="/blog/" class="header-toolbar-left"><i
                   class="fa fa-folder-open"></i> Categories </a>
         <a href="/blog/"
-           class="header-toolbar-right"> 1 </a>
+           class="header-toolbar-right"> 3 </a>
       </li>
     </ul>
     <h2 class="header-title">
@@ -161,9 +161,9 @@
   <article class="post-content">
     <h1>Cookie在前端和后端的设置</h1>
     <p>http 协议什么的，不知道跟通信有没有关系…作为一个科班出身的女汉子，对各种协议基本上只能说出名字，别的一窍不通=，= 所以当我知道 cookie 原来是在 header 里的时候，当时我就震惊了…</p>
-<p>在服务器端，各种框架都已经包装好了方便设置 cookie 的方法，比如 nodejs 的 express，php 的 codeignitor、laravel（我居然都被迫写过 php 了，真是逼良为娼…）</p>
+<p>在服务器端，各种框架都已经包装好了方便设置 cookie 的方法，比如 nodejs 的 express</p>
 <p>为什么要了解设置 cookie 的原理呢？了解了才能在某些时候用最原始的方法来设置 cookie，比如没有框架可用的时候，以及框架提供的方法不适用于某些场景的时候。 我是在使用 laravel 设置 cookie 的时候踩了坑，现在的项目里因为要配合使用 GTM（google tag manager），所以 cookie 是不加密的 raw data，但通过 laravel 设置的 cookie 都是加密了的。于是只能学习 PHP 原生的添加 cookie 方法。<code>setcookie(NAME, VALUE, EXPIRES)</code></p>
-<p>另外就是因为用 AWS API Gateway 时候的一些需求，想要通过 gateway 直接设置 cookie，这个时候就不得不了解 http cookie 的运作方式。</p>
+<p>另外就是因为有时候用 API Gateway 时候的一些需求，想要通过 gateway 直接设置 cookie，这个时候就不得不了解 http cookie 的运作方式。</p>
 <h3 id="response-cookie-从服务器端返回新-cookie"><a href="#response-cookie-从服务器端返回新-cookie" class="headerlink" title="response cookie 从服务器端返回新 cookie"></a>response cookie 从服务器端返回新 cookie</h3><p>设置 cookie 是通过在响应的头部加入<code>Set-Cookie</code>来设置的，</p>
 <blockquote>
 <ul>

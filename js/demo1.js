@@ -8,7 +8,7 @@ function init() {
         template: `
             
             <div style="border: 1px solid #80808029">
-                <div style="text-align: center;">
+                <div style="text-align: center;margin-top: 20px;margin-bottom: 20px;">
                     <button @click="play">play</button>
                     <button @click="stop">stop</button>
                 </div>
