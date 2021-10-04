@@ -54,7 +54,6 @@
   padding: 0;
 }
 .svg-tip {
-  width: 200px;
   position: absolute;
   z-index: 999;
   padding: 10px;

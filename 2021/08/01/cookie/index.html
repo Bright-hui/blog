@@ -73,10 +73,10 @@
         <li><a href="/blog/archives">Archives</a></li>
         
         
-        <li><a href="/blog/">Categories</a></li>
+        <li><a href="/blog/categories">Categories</a></li>
         
         
-        <li><a href="/blog/">Tags</a></li>
+        <li><a href="/blog/tags">Tags</a></li>
         
         
         <li class="desktop-only"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
@@ -109,16 +109,16 @@
            class="header-toolbar-right"> 13 </a>
       </li>
       <li>
-        <a href="/blog/" class="header-toolbar-left"><i
+        <a href="/blog/tags" class="header-toolbar-left"><i
                   class="fa fa-tags"></i> Tags </a>
-        <a href="/blog/"
-           class="header-toolbar-right"> 11 </a>
+        <a href="/blog/tags"
+           class="header-toolbar-right"> 17 </a>
       </li>
       <li>
-        <a href="/blog/" class="header-toolbar-left"><i
+        <a href="/blog/categories" class="header-toolbar-left"><i
                   class="fa fa-folder-open"></i> Categories </a>
-        <a href="/blog/"
-           class="header-toolbar-right"> 3 </a>
+        <a href="/blog/categories"
+           class="header-toolbar-right"> 9 </a>
       </li>
     </ul>
     <h2 class="header-title">
@@ -146,11 +146,11 @@
     <i class="fa fa-user-o"></i>
     Bright Hui
 
-    <span class="post-date float-right" title="{{moment(1630493186000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1627814786000).format('MMM DD, YYYY, h:mm:ss A')}}">
       
           <i class="fa fa-pencil-square-o"></i>
       
-      {{moment(1630493186000).fromNow()}}
+      {{moment(1627814786000).fromNow()}}
     </span>
   </h3>
 
@@ -158,7 +158,7 @@
     <h1>Cookie在前端和后端的设置</h1>
     <p>http 协议什么的，不知道跟通信有没有关系…作为一个科班出身的女汉子，对各种协议基本上只能说出名字，别的一窍不通=，= 所以当我知道 cookie 原来是在 header 里的时候，当时我就震惊了…</p>
 <p>在服务器端，各种框架都已经包装好了方便设置 cookie 的方法，比如 nodejs 的 express</p>
-<p>为什么要了解设置 cookie 的原理呢？了解了才能在某些时候用最原始的方法来设置 cookie，比如没有框架可用的时候，以及框架提供的方法不适用于某些场景的时候。 我是在使用 laravel 设置 cookie 的时候踩了坑，现在的项目里因为要配合使用 GTM（google tag manager），所以 cookie 是不加密的 raw data，但通过 laravel 设置的 cookie 都是加密了的。于是只能学习 PHP 原生的添加 cookie 方法。<code>setcookie(NAME, VALUE, EXPIRES)</code></p>
+<p>为什么要了解设置 cookie 的原理呢？了解了才能在某些时候用最原始的方法来设置 cookie，比如没有框架可用的时候，以及框架提供的方法不适用于某些场景的时候。 我是在使用 express 设置 cookie 的时候踩了坑，现在的项目里因为要配合使用 GTM（google tag manager），所以 cookie 是不加密的 raw data，但通过 GTM 设置的 cookie 都是加密了的。于是只能学习 express 原生的添加 cookie 方法。<code>setcookie(NAME, VALUE, EXPIRES)</code></p>
 <p>另外就是因为有时候用 API Gateway 时候的一些需求，想要通过 gateway 直接设置 cookie，这个时候就不得不了解 http cookie 的运作方式。</p>
 <h3 id="response-cookie-从服务器端返回新-cookie"><a href="#response-cookie-从服务器端返回新-cookie" class="headerlink" title="response cookie 从服务器端返回新 cookie"></a>response cookie 从服务器端返回新 cookie</h3><p>设置 cookie 是通过在响应的头部加入<code>Set-Cookie</code>来设置的，</p>
 <blockquote>
