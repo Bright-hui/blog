@@ -8,7 +8,7 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    Bright Hui
+    箭头函数的作用域和this | Bright Hui
   </title>
   <meta name="description" content="Bright Hui">
   
@@ -30,6 +30,7 @@
 
   <script src="//cdn.bootcdn.net/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
   <script src="//cdn.bootcdn.net/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="/blog/js/iframe-parent.js"></script>
 </head>
 
 <body id="replica-app">
@@ -106,13 +107,13 @@
         <a href="/blog/archives" class="header-toolbar-left"><i
                   class="fa fa-file-text"></i> Posts </a>
         <a href="/blog/archives"
-           class="header-toolbar-right"> 13 </a>
+           class="header-toolbar-right"> 16 </a>
       </li>
       <li>
         <a href="/blog/tags" class="header-toolbar-left"><i
                   class="fa fa-tags"></i> Tags </a>
         <a href="/blog/tags"
-           class="header-toolbar-right"> 17 </a>
+           class="header-toolbar-right"> 22 </a>
       </li>
       <li>
         <a href="/blog/categories" class="header-toolbar-left"><i
@@ -155,7 +156,7 @@
   </h3>
 
   <article class="post-content">
-    <h1>Untitle</h1>
+    <h1>箭头函数的作用域和this</h1>
     <p>JS 里的作用域和 this 一直是一件令人头疼的事情，以前接触的不太多，毕竟面向过程编程的我基本上都不会使用“类”这个概念。</p>
 <p>自从开始学习 ES6，很长一段时间都认为箭头函数(Arrow Function) 就是给懒人用的<strong>简写的匿名函数</strong>而已。后来看到有人挑战阮一峰老师<a target="_blank" rel="noopener" href="http://es6.ruanyifeng.com/">《ECMAScript 6 入门》</a>中关于箭头函数 this 的一些问题，才对箭头函数有了一丁点的理解。</p>
 <p>我平时的工作基本上都是各种第三方的 API 整合，于是各种异步请求，promise 都是家常便饭。由于 SalesForce 没有直接的 nodejs sdk，所以自己写一个自定义的类就不可避免了。在写的过程中，关于 this 踩到坑里了，所以就有了这篇文章。</p>

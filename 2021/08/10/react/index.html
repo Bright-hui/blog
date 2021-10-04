@@ -30,6 +30,7 @@
 
   <script src="//cdn.bootcdn.net/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
   <script src="//cdn.bootcdn.net/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="/blog/js/iframe-parent.js"></script>
 </head>
 
 <body id="replica-app">
@@ -106,13 +107,13 @@
         <a href="/blog/archives" class="header-toolbar-left"><i
                   class="fa fa-file-text"></i> Posts </a>
         <a href="/blog/archives"
-           class="header-toolbar-right"> 13 </a>
+           class="header-toolbar-right"> 16 </a>
       </li>
       <li>
         <a href="/blog/tags" class="header-toolbar-left"><i
                   class="fa fa-tags"></i> Tags </a>
         <a href="/blog/tags"
-           class="header-toolbar-right"> 17 </a>
+           class="header-toolbar-right"> 22 </a>
       </li>
       <li>
         <a href="/blog/categories" class="header-toolbar-left"><i
@@ -160,17 +161,7 @@
 <p><img src="https://b3logfile.com/file/2021/09/36-601c2839.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="img"></p>
 <p>为了最快速的学习react，花半天时间扫了一下官网，发现react 完全跟vue不一样</p>
 <h3 id="就是一个可以通过数据渲染的-view"><a href="#就是一个可以通过数据渲染的-view" class="headerlink" title="就是一个可以通过数据渲染的 view"></a>就是一个可以通过数据渲染的 view</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> HelloWorld = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> [name, setName] = useState(<span class="string">&#x27;huihui&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">          HelloWorld, &#123;name&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<iframe width="100%"
-scrolling=no
-height="240"
-frameborder="0"
-src=""
-srcdoc="<script src='/blog/js/react-live.js'></script><script src='/blog/js/demo3.js'></script>">
-</iframe>
-
-
-
+<iframe src="/blog/examples/react/demo1.html" width="100%" scrolling=no frameborder="0"></iframe>
 
 <h3 id="更灵活的模版-jsx"><a href="#更灵活的模版-jsx" class="headerlink" title="更灵活的模版 jsx"></a>更灵活的模版 jsx</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> App = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> [logined] = useState(<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!logined) &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            <span class="xml"><span class="tag">&lt;<span class="name">EmptyState</span>&gt;</span><span class="tag">&lt;/<span class="name">EmptyState</span>&gt;</span></span></span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">          &#123;logined?<span class="tag">&lt;<span class="name">Main</span>&gt;</span><span class="tag">&lt;/<span class="name">Main</span>&gt;</span>:<span class="tag">&lt;<span class="name">Logined</span>&gt;</span><span class="tag">&lt;/<span class="name">Logined</span>&gt;</span>&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )  </span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 

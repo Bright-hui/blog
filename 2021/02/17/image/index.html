@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    HTML DOM Element - image | Bright Hui
+  </title>
+  <meta name="description" content="Bright Hui">
+  
+  <meta name="keywords" content="
+  html,image
+  ">
+  
+  <meta name="author" content="Bright Hui">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="//cdn.bootcdn.net/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdn.bootcdn.net/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="/blog/js/iframe-parent.js"></script>
+</head>
+
+<body id="replica-app">
+<!--<div class="loading-container" id="loading-container">
+    <style>
+        html, body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .loading-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #6a737d;
+            z-index: 9999;
+        }
+    </style>
+    <div>loading....</div>
+</div>
+-->
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/blog/archives">Archives</a></li>
+        
+        
+        <li><a href="/blog/categories">Categories</a></li>
+        
+        
+        <li><a href="/blog/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://z3.ax1x.com/2021/10/02/4HzCZD.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/blog/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/blog/archives"
+           class="header-toolbar-right"> 16 </a>
+      </li>
+      <li>
+        <a href="/blog/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/blog/tags"
+           class="header-toolbar-right"> 22 </a>
+      </li>
+      <li>
+        <a href="/blog/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/blog/categories"
+           class="header-toolbar-right"> 9 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/blog/">Bright Hui</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Bright Hui
+
+    <span class="post-date float-right" title="{{moment(1613558786000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1613558786000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>HTML DOM Element - image</h1>
+    <p>为了让界面和用户体验更好，所以在界面加了一个图片，来展示对应的演唱会海报。一直以来图片都是用<code>.jpg</code>图片文件，今天忽然发现，他们居然有些图片是<code>.jpeg</code>的 🙄</p>
+<p>于是问题就来了，如果不获取 html 是无法知道正确的图片格式的，所以一个代替的方案是，在<code>.jpg</code>下载失败时尝试使用<code>.jpeg</code>来下载，这就涉及到怎么检测图片是否加载成功…</p>
+<p>搜了一下 google，发现是非常基础的知识，这种时候就觉得自己基础实在是太差了…☹</p>
+<p>js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> image = <span class="keyword">new</span> Image();</span><br><span class="line"><span class="comment">// 相当于 document.createElement(&#x27;img&#x27;)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="image-onload"><a href="#image-onload" class="headerlink" title="image.onload"></a>image.onload</h3><p>当图片加载完成时，触发 image.onload</p>
+<h3 id="image-onerror"><a href="#image-onerror" class="headerlink" title="image.onerror"></a>image.onerror</h3><p>当图片加载出现错误时，触发 image.onerror</p>
+<p>js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 继续上面的例子</span></span><br><span class="line">image.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;ok&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line">image.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;error&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">image.src = <span class="string">&#x27;https://ticket.urbtix.hk/internet/p_image/cover/34505.jpg&#x27;</span>;</span><br><span class="line"><span class="comment">// → &#x27;error&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>以上，就是辣么简单啦。</p>
+<hr>
+<p><strong>Reference:</strong> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image">https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image</a> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/image">https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/image</a></p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://bright-hui.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2021 Bright Hui</li>
+      <li><a href="https://bright-hui.github.io/blog">Home</a></li>
+      
+      <li><a href="weibo">Weibo</a></li>
+      
+    </ul>
+    </ul>
+
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<!--<script src="/blog/js/main.js"></script>-->
+<script>
+    new Vue({
+        el: '#replica-app',
+        data: {
+            moment: moment
+        },
+        ready: function() {
+            // document.getElementById('loading-container').remove();
+        }
+    });
+</script>
+
+</body>
+</html>

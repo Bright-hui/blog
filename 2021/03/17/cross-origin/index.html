@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    对浏览器跨域问题的一些理解 | Bright Hui
+  </title>
+  <meta name="description" content="Bright Hui">
+  
+  <meta name="keywords" content="
+  http,header
+  ">
+  
+  <meta name="author" content="Bright Hui">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="//cdn.bootcdn.net/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdn.bootcdn.net/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="/blog/js/iframe-parent.js"></script>
+</head>
+
+<body id="replica-app">
+<!--<div class="loading-container" id="loading-container">
+    <style>
+        html, body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .loading-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #6a737d;
+            z-index: 9999;
+        }
+    </style>
+    <div>loading....</div>
+</div>
+-->
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/blog/archives">Archives</a></li>
+        
+        
+        <li><a href="/blog/categories">Categories</a></li>
+        
+        
+        <li><a href="/blog/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://z3.ax1x.com/2021/10/02/4HzCZD.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/blog/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/blog/archives"
+           class="header-toolbar-right"> 16 </a>
+      </li>
+      <li>
+        <a href="/blog/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/blog/tags"
+           class="header-toolbar-right"> 22 </a>
+      </li>
+      <li>
+        <a href="/blog/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/blog/categories"
+           class="header-toolbar-right"> 9 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/blog/">Bright Hui</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Bright Hui
+
+    <span class="post-date float-right" title="{{moment(1615977986000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1615977986000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>对浏览器跨域问题的一些理解</h1>
+    <h4 id="1-移动应用开发"><a href="#1-移动应用开发" class="headerlink" title="1 移动应用开发"></a>1 移动应用开发</h4><p>之前用 Ionic 写 mobile app，移动 app 自然是少不了调用 RESTful API 的数据。 开发的时候用浏览器进行调试，然后 console 里不停的出现下面的提示(<strong>Access-Control-Allow-Origin</strong>)：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XMLHttpRequest cannot load http://samlino.local/cag/get_leads. No &#x27;Access-Control-Allow-Origin&#x27; header is present on the requested resource. Origin &#x27;http://localhost:63342&#x27; is therefore not allowed access.</span><br></pre></td></tr></table></figure>
+
+<p>而我当时的解决方法是，在 chrome 装了一个叫<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi">Allow-Control-Allow-Origin</a>的扩展，启用之后就不报错了。</p>
+<p>也不知道什么什么原理，反正就这么一直用着。（不思进取）</p>
+<h4 id="2-网络应用开发"><a href="#2-网络应用开发" class="headerlink" title="2 网络应用开发"></a>2 网络应用开发</h4><p>后来写单页应用（SPA），静态文件的 js 里调用各大公司的 API， github、facebook 什么的，反正从来没有报过上面的错… 另外还写过用 NodeJS 做中间层，从 NodeJS 去 API 拿数据然后渲染再发到前端，也从来没报过错…</p>
+<p>最近的一个 case 是，我们有用 AWS API Gateway, Lambda, DynamoDB 搭建的 API，API 被调用的时候就会 trigger 一系列的任务。然后有个小哥偷懒不想写 PHP，想在前端直接请求 AWS 的 API。于是问题来了…</p>
+<ul>
+<li>浏览器不停的提示 No ‘Access-Control-Allow-Origin’的错误， 拿不到任何返回的数据。</li>
+<li>但是！服务器该做的 job 却都做了！</li>
+</ul>
+<p>这根本不科学啊！！！所以？到底是什么鬼？！</p>
+<h3 id="同源策略-Same-Origin-Policy"><a href="#同源策略-Same-Origin-Policy" class="headerlink" title="同源策略(Same Origin Policy)"></a>同源策略(Same Origin Policy)</h3><p>同源策略就是只有访问的内容来自<strong>相同协议、相同主机、相同端口</strong>的内容时，才会加载访问得到的内容。<strong>浏览器是同源策略的一种实现</strong></p>
+<ul>
+<li>协议：<code>location.protocol</code>，http 和 https 是两种不同的协议</li>
+<li>主机：<code>location.host</code>，不同子域名之间都算跨域，例如<a target="_blank" rel="noopener" href="https://www.baidu.com/">www.baidu.com</a>, tieba.baidu.com 是两个不同的源</li>
+<li>端口：<code>location.port</code></li>
+</ul>
+<h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><p>之前脑子里大概有个<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">CORS</a>的概念，然后一直以为是服务器拒绝从浏览器跨域访问…因为要解决自己 call 自己不同域名下的 API 问题，就是去服务器设置一下 header…但其实是都是浏览器在作怪…</p>
+<p>在浏览器中，允许跨域访问的资源的一些例子： <code>&lt;script src=&quot;...&quot;&gt;&lt;/script&gt;</code> <code>&lt;link rel=&quot;stylesheet&quot; href=&quot;...&quot;&gt;</code> <code>&lt;img&gt;</code> <code>&lt;video&gt;</code> <code>&lt;audio&gt;</code> <code>&lt;object&gt;</code> <code>&lt;embed&gt;</code> <code>&lt;applet&gt;</code> <code>@font-face</code> <code>&lt;frame&gt;</code> <code>&lt;iframe&gt;</code></p>
+<h3 id="Response-Headers"><a href="#Response-Headers" class="headerlink" title="Response Headers"></a>Response Headers</h3><p>先看看可以在浏览器中跨域请求的别人家(github)的 API 返回的 header：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Credentials:true</span><br><span class="line">Access-Control-Allow-Origin:*</span><br><span class="line">Access-Control-Expose-Headers:ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>看看自家 API 返回的 header</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Connection:keep-alive</span><br><span class="line">Content-Encoding:gzip</span><br><span class="line">Content-Type:text/html</span><br><span class="line">Date:Fri, 22 Jan 2016 07:07:01 GMT</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>差别就在于别人家的 API 返回了<strong>Access-Control-Allow-Origin:*</strong> 浏览器读到这个头部之后，才会加载请求的结果。</p>
+<h3 id="跨域的时候服务器收到请求了吗？"><a href="#跨域的时候服务器收到请求了吗？" class="headerlink" title="跨域的时候服务器收到请求了吗？"></a>跨域的时候服务器收到请求了吗？</h3><p>服务器当然收到请求了，不然怎么能返回头部…而且我上面举的诡异的例子中，请求 trigger 的 job 都完成了。</p>
+<p>所以也就是说，服务器其实收到了你的请求，并且给你返回了全部的数据，但是浏览器看到头部就把 body 藏起来了，然后抛出错误提示…</p>
+<h3 id="为什么浏览器不允许跨域访问？"><a href="#为什么浏览器不允许跨域访问？" class="headerlink" title="为什么浏览器不允许跨域访问？"></a>为什么浏览器不允许跨域访问？</h3><p>当然是为了安全……但是这个有点不太好理解，api 拿点数据有什么不安全的？！</p>
+<p>下面这个例子比较清楚的说明同源策略是如何避免安全问题的：<br>网站 A：一个看起来跟银行网站几乎一样的假网站 网站 B：真正的银行网站 如果没有同源策略： </p>
+<blockquote>
+<p>1.当用户来到 A 网站，以为是真的银行网站，然后输入自己的账号、密码（此时用户的账号、密码已经被网站 A 获取了）<br>2.网站 A 利用 ajax 把账号密码发到真正的银行网站 B，然后银行网站返回一个带有 token 的 form 需要用户输入手机验证码。<br>3.网站 A 获得这个 form 之后显示出来，让用户填入手机验证码……至此，网站 A 获得了账号、密码、手机验证码，已经可以登陆用户的账号了。</p>
+</blockquote>
+<p>而当有同源策略时，到第 2 步的时候，网站 A 根本无法获取银行网站返回的带 token 的 form，所以就算有了账户和密码，也无法操作用户的账户。</p>
+<p>当然啦，银行的加密机制肯定没有我描述的这么弱智，不然还要 U 盾之类的东东干嘛，这只是一个为了方便理解安全问题而杜撰的例子…</p>
+<h3 id="好奇宝宝"><a href="#好奇宝宝" class="headerlink" title="好奇宝宝"></a>好奇宝宝</h3><p>不知道 chrome 的这个插件<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi">Allow-Control-Allow-Origin</a>，是怎么实现允许跨域请求的。 之前发现启用插件的时候，github 上的小图标全都不显示了…</p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/Rq6bTDzNHb7lZJ95PGjdnwOCdTzLenhzfqxOxyZFLq4Ow1556162696981.jpeg&thumbnail=650x2147483647&quality=80&type=jpg" alt="img"></p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://bright-hui.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2021 Bright Hui</li>
+      <li><a href="https://bright-hui.github.io/blog">Home</a></li>
+      
+      <li><a href="weibo">Weibo</a></li>
+      
+    </ul>
+    </ul>
+
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<!--<script src="/blog/js/main.js"></script>-->
+<script>
+    new Vue({
+        el: '#replica-app',
+        data: {
+            moment: moment
+        },
+        ready: function() {
+            // document.getElementById('loading-container').remove();
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="/blog/js/react-live.js"></script>
+    <script src="/blog/js/iframe-child.js"></script>
+</head>
+<body>
+
+<script>
+
+    const template = `() => {
+    const [name, setName] = useState('huihui');
+    return (
+        <div>
+            HelloWorld, {name}
+        </div>
+    );
+}`;
+
+    function init() {
+        const container = document.createElement('div');
+        document.body.appendChild(container);
+        createApp(template, container);
+        setTimeout(() => {
+            postCurrentHeight();
+        }, 0);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+    }, false);
+
+</script>
+
+</body>
+</html>

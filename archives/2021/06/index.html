@@ -26,6 +26,7 @@
 
   <script src="//cdn.bootcdn.net/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
   <script src="//cdn.bootcdn.net/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="/blog/js/iframe-parent.js"></script>
 </head>
 
 <body id="replica-app">
@@ -192,7 +193,7 @@
         <svg style="position: relative;top: 4px;"  aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-repo UnderlineNav-octicon hide-sm">
           <path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path>
         </svg>
-        Posts <span class="counter">13</span>
+        Posts <span class="counter">16</span>
       </a>
     </li>
     <li class="">
@@ -210,12 +211,35 @@
         <svg style="position: relative;top: 4px;" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-package UnderlineNav-octicon hide-sm">
           <path fill-rule="evenodd" d="M8.878.392a1.75 1.75 0 00-1.756 0l-5.25 3.045A1.75 1.75 0 001 4.951v6.098c0 .624.332 1.2.872 1.514l5.25 3.045a1.75 1.75 0 001.756 0l5.25-3.045c.54-.313.872-.89.872-1.514V4.951c0-.624-.332-1.2-.872-1.514L8.878.392zM7.875 1.69a.25.25 0 01.25 0l4.63 2.685L8 7.133 3.245 4.375l4.63-2.685zM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432L2.5 5.677zm6.25 8.271l4.625-2.683a.25.25 0 00.125-.216V5.677L8.75 8.432v5.516z"></path>
         </svg>
-        Tags <span class="counter">17</span></a></li>
+        Tags <span class="counter">22</span></a></li>
   </ul>
 </nav>
 
     <div class="body-secondary">
       <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2021/06/10/vue-nexttick/">Vue nextTick应用场景和原理</a></h2>
+          <p>
+             平时工作中经常遇到奇奇怪怪的dom更新问题，nextTick屡试不爽，终于有时间补补元气 
+   
+   1. 修改数据后第三方jquery插件初始化dom       1   2   3   4   5   6   7   8   9   10   11   12   13   14   15 ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/Vue/">Vue</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/blog/categories/Vue/"><i class="fa fa-folder-open"></i> Vue</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1623321986000).fromNow()}}</span>
+          </div>
+        </li>
         
         <li class="archive-list-item">
           <h2><a href="/blog/2021/06/02/git/">git 如何合并多个提交为一个</a></h2>
@@ -237,32 +261,6 @@
             </span>
             <span><i class="fa fa-tag"></i> 1 </span>
             <span>Published {{moment(1622630786000).fromNow()}}</span>
-          </div>
-        </li>
-        
-        <li class="archive-list-item">
-          <h2><a href="/blog/2021/06/01/load-script/">如何延迟加载script</a></h2>
-          <p>
-              &amp;lt;script&amp;gt; 的下载和执行都会阻塞页面渲染，因此大多数情况下，我们都把 &amp;lt;script&amp;gt; 放在 &amp;lt;body&amp;gt; 的底部，渲染完前面的 html 内容之后才加载和执行 JS。 
- 然而有时由于某些限制，只把某些 &amp;lt;script&amp;gt; 放在 &amp;lt;he...
-          </p>
-          <ul class="tag-list clearfix">
-            
-            <li class="tag-list-item"><a href="/blog/tags/js/">js</a></li>
-            
-            <li class="tag-list-item"><a href="/blog/tags/async/">async</a></li>
-            
-            <li class="tag-list-item"><a href="/blog/tags/defer/">defer</a></li>
-            
-          </ul>
-          <div class="post-info">
-            <span>
-              
-              <a class="category-link" href="/blog/categories/JavaScript/"><i class="fa fa-folder-open"></i> JavaScript</a>
-              
-            </span>
-            <span><i class="fa fa-tag"></i> 3 </span>
-            <span>Published {{moment(1622544386000).fromNow()}}</span>
           </div>
         </li>
         

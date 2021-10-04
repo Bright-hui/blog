@@ -26,6 +26,7 @@
 
   <script src="//cdn.bootcdn.net/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
   <script src="//cdn.bootcdn.net/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="/blog/js/iframe-parent.js"></script>
 </head>
 
 <body id="replica-app">
@@ -187,15 +188,15 @@
         Overview
       </a>
     </li>
-    <li class="selected">
+    <li class="">
       <a href="/blog/archives">
         <svg style="position: relative;top: 4px;"  aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-repo UnderlineNav-octicon hide-sm">
           <path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path>
         </svg>
-        Posts <span class="counter">13</span>
+        Posts <span class="counter">16</span>
       </a>
     </li>
-    <li class="">
+    <li class="selected">
       <a href="/blog/categories">
         <svg style="position: relative;top: 4px;" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-project UnderlineNav-octicon hide-sm">
           <path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path>
@@ -210,7 +211,7 @@
         <svg style="position: relative;top: 4px;" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-package UnderlineNav-octicon hide-sm">
           <path fill-rule="evenodd" d="M8.878.392a1.75 1.75 0 00-1.756 0l-5.25 3.045A1.75 1.75 0 001 4.951v6.098c0 .624.332 1.2.872 1.514l5.25 3.045a1.75 1.75 0 001.756 0l5.25-3.045c.54-.313.872-.89.872-1.514V4.951c0-.624-.332-1.2-.872-1.514L8.878.392zM7.875 1.69a.25.25 0 01.25 0l4.63 2.685L8 7.133 3.245 4.375l4.63-2.685zM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432L2.5 5.677zm6.25 8.271l4.625-2.683a.25.25 0 00.125-.216V5.677L8.75 8.432v5.516z"></path>
         </svg>
-        Tags <span class="counter">17</span></a></li>
+        Tags <span class="counter">22</span></a></li>
   </ul>
 </nav>
 
@@ -218,72 +219,25 @@
       <ul class="archive-list">
         
         <li class="archive-list-item">
-          <h2><a href="/blog/2021/03/12/npm/">开发时如何使用本地npm包作为依赖</a></h2>
+          <h2><a href="/blog/2021/06/10/vue-nexttick/">Vue nextTick应用场景和原理</a></h2>
           <p>
-             这个问题我已经遇到两次了。 
- 第一次是我自己在本地开发 demo 的时候是直接引用 ./src ，没有试过真的当做一个 package 来使用，所以我用的时候是没问题的 😅 
- 第二次就是我们有一个把所有 API 包起来的 package，所有请求都添加到这个 package 里来做，于是除了...
+             平时工作中经常遇到奇奇怪怪的dom更新问题，nextTick屡试不爽，终于有时间补补元气 
+   
+   1. 修改数据后第三方jquery插件初始化dom       1   2   3   4   5   6   7   8   9   10   11   12   13   14   15 ...
           </p>
           <ul class="tag-list clearfix">
             
-            <li class="tag-list-item"><a href="/blog/tags/npm/">npm</a></li>
+            <li class="tag-list-item"><a href="/blog/tags/Vue/">Vue</a></li>
             
           </ul>
           <div class="post-info">
             <span>
               
-              <a class="category-link" href="/blog/categories/programming/"><i class="fa fa-folder-open"></i> programming</a>
+              <a class="category-link" href="/blog/categories/Vue/"><i class="fa fa-folder-open"></i> Vue</a>
               
             </span>
             <span><i class="fa fa-tag"></i> 1 </span>
-            <span>Published {{moment(1615545986000).fromNow()}}</span>
-          </div>
-        </li>
-        
-        <li class="archive-list-item">
-          <h2><a href="/blog/2021/02/02/hoisting/">JS变量提升</a></h2>
-          <p>
-             写了无数 JS 也依旧没听过变量提升… 
- 变量提升(Hoisting)这个概念，我第一次见到是在万人膜拜的 Airbnb JS 代码风格 中见到。看完这一节大概明白是在说什么，然后觉得非常奇怪，这个概念平时写代码什么情况下用的到呢？ 
- 我写了这么久 JS，从来也不会先用变量后定义的呀，而且别的...
-          </p>
-          <ul class="tag-list clearfix">
-            
-            <li class="tag-list-item"><a href="/blog/tags/hoisting/">hoisting</a></li>
-            
-            <li class="tag-list-item"><a href="/blog/tags/js/">js</a></li>
-            
-          </ul>
-          <div class="post-info">
-            <span>
-              
-              <a class="category-link" href="/blog/categories/Javascript/"><i class="fa fa-folder-open"></i> Javascript</a>
-              
-            </span>
-            <span><i class="fa fa-tag"></i> 2 </span>
-            <span>Published {{moment(1612262786000).fromNow()}}</span>
-          </div>
-        </li>
-        
-        <li class="archive-list-item">
-          <h2><a href="/blog/2020/02/12/arrow-function/">Untitled</a></h2>
-          <p>
-             JS 里的作用域和 this 一直是一件令人头疼的事情，以前接触的不太多，毕竟面向过程编程的我基本上都不会使用“类”这个概念。 
- 自从开始学习 ES6，很长一段时间都认为箭头函数(Arrow Function) 就是给懒人用的 简写的匿名函数 而已。后来看到有人挑战阮一峰老师 《ECMAScri...
-          </p>
-          <ul class="tag-list clearfix">
-            
-            <li class="tag-list-item"><a href="/blog/tags/function/">function</a></li>
-            
-          </ul>
-          <div class="post-info">
-            <span>
-              
-              <a class="category-link" href="/blog/categories/JS/"><i class="fa fa-folder-open"></i> JS</a>
-              
-            </span>
-            <span><i class="fa fa-tag"></i> 1 </span>
-            <span>Published {{moment(1581475586000).fromNow()}}</span>
+            <span>Published {{moment(1623321986000).fromNow()}}</span>
           </div>
         </li>
         
