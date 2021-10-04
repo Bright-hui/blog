@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="/blog/js/iframe-child.js"></script>
+    <style>
+        .aspect-ratio {
+            /* aspect-ratio custom properties */
+            /* The width portion of the aspect ratio, e.g. 16 in 16:9. */
+            --aspect-ratio-w: 1;
+            /* The height portion of the aspect ratio, e.g. 9 in 16:9. */
+            --aspect-ratio-h: 1;
+
+            position: relative;
+        }
+
+        .aspect-ratio > *:first-child {
+            width: 100%;
+        }
+
+        @supports (--custom-props: "true") {
+            .aspect-ratio::before {
+                display: block;
+                padding-top: calc(var(--aspect-ratio-h, 1) /
+                var(--aspect-ratio-w, 1) * 100%);
+                content: "";
+            }
+
+            .aspect-ratio > *:first-child {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    </style>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        .box-info {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div style="margin-bottom: 20px;">
+    窗口容器宽度
+    <select id="browser-window" onchange="onSelect()">
+        <option value="30%">30%</option>
+
+        <option value="50%">50%</option>
+        <option value="70%">70%</option>
+        <option value="80%">80%</option>
+        <option value="90%">90%</option>
+
+        <option selected value="100%">100%</option>
+    </select>
+</div>
+<script>
+    const mySelect = document.getElementById("browser-window");
+    function onSelect() {
+        const index= mySelect.selectedIndex;
+        const value = mySelect.options[index].value;
+        document.body.style.width = value;
+        postCurrentHeight();
+        box1();
+    }
+</script>
+
+<div class="aspect-ratio" style="width: 100%; --aspect-ratio-w: 2; --aspect-ratio-h: 1;background-color: #8cc665;">
+    <div id="box1">
+        <div class="box-info"></div>
+    </div>
+</div>
+<script>
+    function box1() {
+        const container = document.getElementById('box1');
+        const info = container.querySelector('.box-info');
+        info.innerHTML = `
+        <span>${container.clientWidth}</span>
+        <span>x</span>
+        <span>${container.clientHeight}</span>
+        `;
+    }
+    box1();
+</script>
+
+</body>
+</html>

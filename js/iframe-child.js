@@ -63,4 +63,10 @@
         postCurrentHeight();
     }, 500);
     window.addEventListener('resize', resizeDebounced , false);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            postCurrentHeight();
+        }, 0);
+    }, false);
 })();
