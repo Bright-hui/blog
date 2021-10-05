@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="/blog/js/iframe-child.js"></script>
+    <script src="//cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box-container {
+            width: 100%;
+        }
+
+        .box {
+            position: relative;
+            background-color: #8cc665;
+        }
+
+        .box-info {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            color: white;
+        }
+    </style>
+
+    <script>
+        function AspectRatio() {
+            this.reflow();
+            window.addEventListener('resize', () => {
+                this.reflow();
+            }, false);
+        }
+        AspectRatio.prototype.reflow = () => {
+            $('.aspect-ratio').each((i, item) => {
+                const $item = $(item);
+                const width = $item.width();
+                $item.height(width/2);
+            });
+        };
+    </script>
+</head>
+<body>
+
+<div style="margin-bottom: 20px;">
+    窗口容器宽度
+    <select id="browser-window" onchange="onSelect()">
+        <option value="30%">30%</option>
+        <option value="50%">50%</option>
+        <option value="70%">70%</option>
+        <option value="80%">80%</option>
+        <option value="90%">90%</option>
+        <option selected value="100%">100%</option>
+    </select>
+</div>
+<script>
+    const mySelect = document.getElementById("browser-window");
+
+    function onSelect() {
+        const index = mySelect.selectedIndex;
+        const value = mySelect.options[index].value;
+        document.body.style.width = value;
+        aspectRatio.reflow();
+        box1();
+        postCurrentHeight();
+    }
+</script>
+
+<div class="box-container">
+    <div class="box aspect-ratio" id="box1" data-aspect-ratio="2">
+        <div class="box-info"></div>
+    </div>
+</div>
+
+<script>
+    function autoFix() {
+        $('.box').each((i, item) => {
+            const $item = $(item);
+            const width = $item.width();
+            console.log(width);
+            $item.height(width/2);
+        });
+    }
+</script>
+<script>
+    const aspectRatio = new AspectRatio();
+
+
+    function box1() {
+        const container = document.getElementById('box1');
+        const info = container.querySelector('.box-info');
+        info.innerHTML = `
+        <span>${container.clientWidth}</span>
+        <span>x</span>
+        <span>${container.clientHeight}</span>
+        `;
+    }
+
+    // autoFix();
+    box1();
+
+
+</script>
+
+</body>
+</html>
