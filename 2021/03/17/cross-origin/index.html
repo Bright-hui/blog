@@ -168,7 +168,7 @@
 
   <article class="post-content">
     <h1>对浏览器跨域问题的一些理解</h1>
-    <h4 id="1-移动应用开发"><a href="#1-移动应用开发" class="headerlink" title="1 移动应用开发"></a>1 移动应用开发</h4><p>之前用 Ionic 写 mobile app，移动 app 自然是少不了调用 RESTful API 的数据。 开发的时候用浏览器进行调试，然后 console 里不停的出现下面的提示(<strong>Access-Control-Allow-Origin</strong>)：</p>
+    <h4 id="1-移动应用开发"><a href="#1-移动应用开发" class="headerlink" title="1 移动应用开发"></a>1 移动应用开发</h4><p>之前用 uniapp 写 mobile app，移动 app 自然是少不了调用 RESTful API 的数据。 开发的时候用浏览器进行调试，然后 console 里不停的出现下面的提示(<strong>Access-Control-Allow-Origin</strong>)：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XMLHttpRequest cannot load http://samlino.local/cag/get_leads. No &#x27;Access-Control-Allow-Origin&#x27; header is present on the requested resource. Origin &#x27;http://localhost:63342&#x27; is therefore not allowed access.</span><br></pre></td></tr></table></figure>
 
 <p>而我当时的解决方法是，在 chrome 装了一个叫<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi">Allow-Control-Allow-Origin</a>的扩展，启用之后就不报错了。</p>
