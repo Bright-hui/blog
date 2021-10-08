@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bfc</title>
+    <script src="/blog/js/iframe-child.js"></script>
+</head>
+<body>
+
+<div id="example1">
+    <h2>Float高度塌陷</h2>
+    <div id="float-container">
+        <p>
+            <input name="float" type="radio" value="0" checked> .container { }
+        </p>
+        <p>
+            <input name="float" type="radio" value="1"> .container { overflow: hidden }
+        </p>
+        <p>
+            <input name="float" type="radio" value="2"> .container { display: inline-block }
+        </p>
+    </div>
+    <style>
+        #example1 .container {
+            background: #000;
+            min-height: 50px;
+        }
+        #example1 .box {
+            margin: 100px;
+            width: 100px;
+            height: 100px;
+            background: red;
+            float: left;
+        }
+    </style>
+    <div  style="height: 300px;border: 1px solid lightgray;">
+
+        <div class="container">
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+
+    </div>
+    <script>
+        (() => {
+            const container = document.querySelector('#example1 .container');
+            const radios = document.querySelectorAll('#float-container [type="radio"]');
+            radios.forEach((radio) => {
+                radio.addEventListener('change', (e) =>{
+                    const value = e.target.value;
+                    if(value === '1'){
+                        container.style = 'overflow: hidden';
+                    } else if(value === '2') {
+                        container.style = 'display: inline-block';
+                    } else {
+                        container.style = '';
+                    }
+                }, false);
+            });
+        })();
+    </script>
+
+</div>
+
+
+<div id="example2">
+    <h2>Margin边距重叠</h2>
+    <div class="select-container">
+        <p>
+            <input name="margin" type="radio" value="0" checked> .container {  }
+        </p>
+        <p>
+            <input name="margin" type="radio" value="1"> .container { display: flex;flex-direction: column; }
+        </p>
+        <p>
+            <input name="margin" type="radio" value="2"> .container #box2 { float:left; } 子元素浮动，浮动相当于新建了BFC,所以不会重叠
+        </p>
+        <p>
+            <input name="margin" type="radio" value="3">创建一个新的BFC容器
+            <br/>
+            &lt;div class=&quot;container&quot;&gt;<br/>
+            &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;<br/>
+            &lt;div style=&quot;overflow:hidden;&quot;&gt;<br/>
+            &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+        </p>
+    </div>
+    <style>
+        #example2 .container {
+        }
+        #example2 .box {
+            margin: 50px;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+    <div style="position:relative;height: 400px;border: 1px solid lightgray;">
+
+        <div class="container">
+            <div class="box" id="box1"></div>
+            <div>
+                <div class="box" id="box2"></div>
+            </div>
+        </div>
+
+        <div id="tip" style="position: absolute;top: 150px;left:150px;width:100px;height:100px;border-left: 1px solid green;">
+            现在是 50px
+        </div>
+    </div>
+    <script>
+        (() => {
+            const container = document.querySelector('#example2 .container');
+            const radios = document.querySelectorAll('.select-container [type="radio"]');
+            radios.forEach((radio) => {
+                radio.addEventListener('change', (e) =>{
+                    console.log(e.target.value);
+                    const value = e.target.value;
+                    if(value === '1'){
+                        container.style = 'display: flex;flex-direction: column;';
+                        document.getElementById('tip').innerText = '现在是 100px';
+                    } else if(value === '2') {
+                        // container.style = 'display: inline-block';
+                        document.querySelector('.container #box2').style = 'float:left';
+                    } else {
+                        container.style = '';
+                        document.querySelector('.container #box2').style = '';
+                        document.getElementById('tip').innerText = '现在是 50px';
+                    }
+                }, false);
+            });
+        })();
+    </script>
+
+</div>
+
+
+</body>
+</html>

@@ -8,12 +8,12 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    开发时如何使用本地npm包作为依赖 | Bright Hui
+    BFC想说爱你不容易 | Bright Hui
   </title>
   <meta name="description" content="Bright Hui">
   
   <meta name="keywords" content="
-  npm
+  css,bfc
   ">
   
   <meta name="author" content="Bright Hui">
@@ -158,24 +158,36 @@
     <i class="fa fa-user-o"></i>
     Bright Hui
 
-    <span class="post-date float-right" title="{{moment(1615545986000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1618656386000).format('MMM DD, YYYY, h:mm:ss A')}}">
       
           <i class="fa fa-pencil-square-o"></i>
       
-      {{moment(1615545986000).fromNow()}}
+      {{moment(1618656386000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1>开发时如何使用本地npm包作为依赖</h1>
-    <p>这个问题我已经遇到两次了。</p>
-<p>第一次是我自己在本地开发 demo 的时候是直接引用<code>./src</code>，没有试过真的当做一个 package 来使用，所以我用的时候是没问题的 😅</p>
-<p>第二次就是我们有一个把所有 API 包起来的 package，所有请求都添加到这个 package 里来做，于是除了要写主要的 application 还要维护这个 package，需要测试这个 package 是否能够正常使用。</p>
-<p>根据 Stackoverflow，在本地使用本地 package 作为 dependency 有很多方法可以实现，我经常用到的是<code>npm link</code>，暂时也还没有遇到什么奇奇怪怪的问题。</p>
-<p>官方的例子已经说的很清楚了，这里就不赘述了</p>
-<p>bash</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/projects/project1    <span class="comment"># go into the package directory</span></span><br><span class="line">npm link                    <span class="comment"># creates global link 先在dependency里创建link</span></span><br><span class="line"><span class="built_in">cd</span> ~/projects/project2   <span class="comment"># go into some other package directory.</span></span><br><span class="line">npm link project1              <span class="comment"># link-install the package 然后在主项目里安装已连接的dependency</span></span><br></pre></td></tr></table></figure>
+    <h1>BFC想说爱你不容易</h1>
+    <p>BFC就是一个隔离的独立布局容器</p>
+<h3 id="直接看使用场景"><a href="#直接看使用场景" class="headerlink" title="直接看使用场景"></a>直接看使用场景</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.container</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">background</span>: <span class="number">#000</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">min-height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">background</span>: red;</span></span><br><span class="line"><span class="css">        <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;example1&quot;</span> <span class="attr">style</span>=<span class="string">&quot;height: 300px;border: 1px solid lightgray;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>  <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<iframe src="/blog/examples/bfc/demo1.html" width="100%" scrolling=no frameborder="0"></iframe>
 
+
+<h3 id="怎样触发BFC"><a href="#怎样触发BFC" class="headerlink" title="怎样触发BFC"></a>怎样触发BFC</h3><p>这里简单列举几个触发BFC使用的CSS属性</p>
+<ul>
+<li>   overflow: hidden</li>
+<li>   display: inline-block</li>
+<li>   position: absolute</li>
+<li>   position: fixed</li>
+<li>   display: table-cell</li>
+<li>   display: flex</li>
+</ul>
+<h3 id="BFC的规则"><a href="#BFC的规则" class="headerlink" title="BFC的规则"></a>BFC的规则</h3><ul>
+<li>BFC就是一个块级元素，块级元素会在垂直方向一个接一个的排列</li>
+<li>BFC就是页面中的一个隔离的独立容器，容器里的标签不会影响到外部标签</li>
+<li>垂直方向的距离由margin决定， 属于同一个BFC的两个相邻的标签外边距会发生重叠</li>
+<li>计算BFC的高度时，浮动元素也参与计算</li>
+</ul>
 
   </article>
 </div>
