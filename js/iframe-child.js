@@ -64,9 +64,15 @@
     }, 500);
     window.addEventListener('resize', resizeDebounced , false);
 
+
     document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             postCurrentHeight();
         }, 0);
+
+        const observer = new ResizeObserver(() => {
+            postCurrentHeight();
+        });
+        observer.observe(document.body);
     }, false);
 })();

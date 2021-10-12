@@ -77,13 +77,16 @@
         </p>
         <p>
             <input name="margin" type="radio" value="3">创建一个新的BFC容器
-            <br/>
-            &lt;div class=&quot;container&quot;&gt;<br/>
-            &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;<br/>
-            &lt;div style=&quot;overflow:hidden;&quot;&gt;<br/>
-            &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;<br/>
-            &lt;/div&gt;<br/>
-            &lt;/div&gt;<br/>
+            <pre>
+                <code>
+                    &lt;div class=&quot;container&quot;&gt;
+                        &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+                        &lt;div style=&quot;overflow:hidden;&quot;&gt;
+                            &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                </code>
+            </pre>
         </p>
     </div>
     <style>
@@ -105,7 +108,7 @@
             </div>
         </div>
 
-        <div id="tip" style="position: absolute;top: 150px;left:150px;width:100px;height:100px;border-left: 1px solid green;">
+        <div id="tip" style="position: absolute;top: 120px;left:150px;width:100px;height:150px;border-left: 1px solid green;line-height: 100px;">
             现在是 50px
         </div>
     </div>
@@ -119,14 +122,20 @@
                     const value = e.target.value;
                     if(value === '1'){
                         container.style = 'display: flex;flex-direction: column;';
-                        document.getElementById('tip').innerText = '现在是 100px';
                     } else if(value === '2') {
                         // container.style = 'display: inline-block';
                         document.querySelector('.container #box2').style = 'float:left';
+                    } else if(value === '3') {
+                        document.querySelector('.container #box2').parentNode.style = 'overflow: hidden';
                     } else {
                         container.style = '';
                         document.querySelector('.container #box2').style = '';
                         document.getElementById('tip').innerText = '现在是 50px';
+                        document.querySelector('.container #box2').parentNode.style = '';
+                    }
+
+                    if(value !== '0') {
+                        document.getElementById('tip').innerText = '现在是 100px';
                     }
                 }, false);
             });

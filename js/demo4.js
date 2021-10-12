@@ -8,7 +8,7 @@
 
 const template =
 `const Header = styled.div\`
-color: blue;
+    color: blue;
 \`;
 
 render(<Header>Hello World!</Header>)
