@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Flex 伸缩规则 | Bright Hui
+  </title>
+  <meta name="description" content="Bright Hui">
+  
+  <meta name="keywords" content="
+  css,flex
+  ">
+  
+  <meta name="author" content="Bright Hui">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="//cdn.bootcdn.net/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdn.bootcdn.net/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="/blog/js/iframe-parent.js"></script>
+  <script src="/blog/libs/iframeResizer.js"></script>
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?a6068561fcfd162c7f8d61c2af7ceeff";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+</head>
+
+<body id="replica-app">
+<!--<div class="loading-container" id="loading-container">
+    <style>
+        html, body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .loading-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #6a737d;
+            z-index: 9999;
+        }
+    </style>
+    <div>loading....</div>
+</div>
+-->
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/blog/archives">Archives</a></li>
+        
+        
+        <li><a href="/blog/categories">Categories</a></li>
+        
+        
+        <li><a href="/blog/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://z3.ax1x.com/2021/10/02/4HzCZD.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/blog/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/blog/archives"
+           class="header-toolbar-right"> 21 </a>
+      </li>
+      <li>
+        <a href="/blog/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/blog/tags"
+           class="header-toolbar-right"> 25 </a>
+      </li>
+      <li>
+        <a href="/blog/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/blog/categories"
+           class="header-toolbar-right"> 10 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/blog/">Bright Hui</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Bright Hui
+
+    <span class="post-date float-right" title="{{moment(1634899586000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1634899586000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Flex 伸缩规则</h1>
+    <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>研究这个的起因是最近工作中大量使用flex布局，特别是在移动端，然后我们的产品经理不知道哪里研究的适配规则，让我应接不暇</p>
+<p>一会按照比例自适应，一会又说在某个手机上缩的有点小</p>
+<p><img src="http://inews.gtimg.com/newsapp_bt/0/8760816289/0/0" alt="img"></p>
+<p>不过最后想了想，平时对flex布局就只会用一列和 固定宽度和自适应一个的 情况<br>今天又去翻了翻flex布局的文档，突然有种灵魂开窍的感觉</p>
+<h2 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h2><iframe src="/blog/examples/flex/flex-grow.html" height="1000" width="100%" scrolling=no frameborder="0"></iframe>
+
+<h2 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h2><iframe src="/blog/examples/flex/flex-shrink.html" height="1000" width="100%" scrolling=no frameborder="0"></iframe>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://bright-hui.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2021 Bright Hui</li>
+      <li><a href="https://bright-hui.github.io/blog">Home</a></li>
+      
+      <li><a href="weibo">Weibo</a></li>
+      
+    </ul>
+    </ul>
+
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<!--<script src="/blog/js/main.js"></script>-->
+<script>
+    new Vue({
+        el: '#replica-app',
+        data: {
+            moment: moment
+        },
+        ready: function() {
+            // document.getElementById('loading-container').remove();
+
+            iFrameResize({log:false});
+
+        }
+    });
+</script>
+
+
+</body>
+</html>

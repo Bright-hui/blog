@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex-shrink</title>
+    <script src="/blog/js/iframe-child.js"></script>
+    <style>
+        .container {
+            margin: 0 auto;
+            background-color: #999;
+            display: flex;
+            width: 400px;
+            text-align: center;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        .box{
+            height: 100px;
+            text-align: center;
+            color: #fff;
+        }
+        .box p {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .box1{
+            background-color: tan;
+        }
+        .box2{
+            background-color: green;
+        }
+        .box3{
+            background-color: blue;
+        }
+        .box4{
+            background-color: yellow;
+        }
+        .box5{
+            background-color: blueviolet;
+        }
+        .box6{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+<div style="text-align: center;margin-bottom: 50px;">
+    flex-shrink 子容器总宽度超出父容器宽度，把超出的部分压缩进容器内
+</div>
+
+<div id="example1">
+    <h2>没有设置flex-shrink 的默认情况</h2>
+    <style>
+        #example1 .box1 {
+            width: 100px;
+        }
+        #example1 .box2 {
+            width: 200px;
+        }
+        #example1 .box3 {
+            width: 300px;
+        }
+    </style>
+
+    <div class="container">
+        <div class="box box1">100px</div>
+        <div class="box box2">200px</div>
+        <div class="box box3">300px</div>
+    </div>
+
+</div>
+
+
+<p>容器宽度 400 </p>
+<p>box1 width = 100</p>
+<p>box2 width = 200</p>
+<p>box3 width = 300</p>
+<p>子容器总宽度 100 + 200 + 300 = 600 容器宽度 400</p>
+<p>按道理应该超出去200px，但实际看到没有超出去，说明flex盒子自动压缩了</p>
+<p>原因是当触发缩的情况时（子容器总宽度超过flex父容器），看到属性子容器 flex-shrink 默认为 1</p>
+
+
+<p>缩计算公式</p>
+<p>宽度 = 本身宽度 - 减少（缩）宽度</p>
+
+<p>
+    减少（缩）宽度 不是按照flex-shrink的比例来压缩的，要考虑自身宽度的影响才公平，说明重要的内容缩的小一点才合理不影响整体布局
+</p>
+<p>
+    减少（缩）宽度 = (box1.width * box1.flex-shrink) / (box1.flex-shrink + box2.flex-shrink + box3.flex-shrink) * 子容器总宽度总共要缩的宽度
+</p>
+<p>
+    box1 减少（缩）宽度 = 200(子容器总宽度总共要缩的宽度) * ((100*1)/(100*1+200*1+300*1)) = 33.33333333333333
+</p>
+<p>
+    box1 宽度 = 本身宽度 100 - 减少（缩）宽度 33.33333333333333 = 66.66666666666667
+</p>
+
+
+<div id="example2">
+    <h2>flex-shrink = 1:2:3 的情况</h2>
+    <style>
+        #example2 .box1 {
+            width: 100px;
+            flex-shrink: 1;
+        }
+        #example2 .box2 {
+            width: 200px;
+            flex-shrink: 2;
+        }
+        #example2 .box3 {
+            width: 300px;
+            flex-shrink: 3;
+        }
+    </style>
+
+    <div class="container">
+        <div class="box box1">
+            <p>本身宽度 100px</p>
+            <p>增加减少 14.28px</p>
+            <p>flex-shrink: 1</p>
+        </div>
+        <div class="box box2">
+            <p>本身宽度 200px</p>
+            <p>增加减少 57.14px</p>
+            <p>flex-shrink: 2</p>
+        </div>
+        <div class="box box3">
+            <p>本身宽度 300px</p>
+            <p>增加减少 128.57px</p>
+            <p>flex-shrink: 3</p>
+        </div>
+    </div>
+
+    <p>
+        box1 减少（缩）宽度 = （100*1 / (100*1+200*2+300*3)）* 200 = 14.285714285714285
+    </p>
+    <p>
+        box1 宽度 = 本身宽度 100 - 减少（缩）宽度 14.285714285714285 = 85.71428571428572
+    </p>
+
+    <p>
+        box2 减少（缩）宽度 = （200*2 / (100*1+200*2+300*3)）* 200 = 57.14285714285714
+    </p>
+    <p>
+        box2 宽度 = 本身宽度 200 - 减少（缩）宽度 57.14285714285714 = 142.85714285714286
+    </p>
+
+    <p>
+        box3 减少（缩）宽度 = (300*3 / (100*1+200*2+300*3)) * 200 = 128.57142857142858
+    </p>
+    <p>
+        box3 宽度 = 本身宽度 300 - 减少（缩）宽度 128.57142857142858 = 171.42857142857142
+    </p>
+
+</div>
+
+
+</body>
+</html>

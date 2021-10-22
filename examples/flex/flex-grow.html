@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex-grow</title>
+    <script src="/blog/js/iframe-child.js"></script>
+    <style>
+        .container {
+            margin: 0 auto;
+            background-color: #999;
+            display: flex;
+            width: 600px;
+            text-align: center;
+        }
+        .box{
+            /*flex-basis: 200px;*/
+            height: 100px;
+            text-align: center;
+            color: #fff;
+            /*line-height: 90px;*/
+        }
+        .box p {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .box1{
+            background-color: tan;
+        }
+        .box2{
+            background-color: green;
+        }
+        .box3{
+            background-color: blue;
+        }
+        .box4{
+            background-color: yellow;
+        }
+        .box5{
+            background-color: blueviolet;
+        }
+        .box6{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+<div style="text-align: center;margin-bottom: 50px;">
+    flex-grow 当容器下元素的(以下都以宽度为例，但不仅限于宽度)没有完全填充的时候，使用flex-grow填充剩余的部分
+</div>
+
+<div id="example1">
+    <h2>没有设置flex-grow 的默认情况</h2>
+    <style>
+        #example1 .box1 {
+            width: 100px;
+            /*flex-grow: 1;*/
+        }
+        #example1 .box2 {
+            width: 150px;
+            /*flex-grow: 2;*/
+        }
+        #example1 .box3 {
+            width: 200px;
+            /*flex-grow: 3;*/
+        }
+    </style>
+
+    <div class="container">
+        <div class="box box1">100px</div>
+        <div class="box box2">150px</div>
+        <div class="box box3">200px</div>
+    </div>
+</div>
+
+
+<p>容器宽度 600 </p>
+<p>box1 width = 100</p>
+<p>box2 width = 150</p>
+<p>box3 width = 200</p>
+<p>总 width = 100 + 150 + 200 = 450</p>
+<p>父容器 剩余 600-450 = 150 接下来就是怎么瓜分这个剩余宽度</p>
+
+
+<div id="example2">
+    <h2>全部设置flex-grow = 1的情况</h2>
+    <style>
+        #example2 .box1 {
+            width: 100px;
+            flex-grow: 1;
+        }
+        #example2 .box2 {
+            width: 150px;
+            flex-grow: 1;
+        }
+        #example2 .box3 {
+            width: 200px;
+            flex-grow: 1;
+        }
+    </style>
+
+    <div class="container">
+        <div class="box box1">
+            <p>本身宽度 100px</p>
+            <p>增加宽度 50px</p>
+            <p>flex-grow: 1</p>
+        </div>
+        <div class="box box2">
+            <p>本身宽度 150px</p>
+            <p>增加宽度 50px</p>
+            <p>flex-grow: 1</p>
+        </div>
+        <div class="box box3">
+            <p>本身宽度 200px</p>
+            <p>增加宽度 50px</p>
+            <p>flex-grow: 1</p>
+        </div>
+    </div>
+
+    <p>伸计算公式</p>
+    <p>宽度 = 本身宽度 + 增加（伸）宽度</p>
+    <p>
+        增加（伸）宽度 = 每一个元素增加的量等于多余的部分除以所有元素总的flex-grow值然后再乘以当前元素的flex-grow值
+    </p>
+    <p>
+        box1 增加（伸）宽度 = （150(多余的宽度，要瓜分的宽度) / 3）* 1 = 50
+    </p>
+    <p>
+        box1 宽度 = 本身宽度 100 + 增加（伸）宽度 50 = 150
+    </p>
+    <p>
+        box2 宽度 = 本身宽度 150 + 增加（伸）宽度 50 = 200
+    </p>
+</div>
+
+<div id="example3">
+    <h2>flex-grow = 1:2:3 的情况</h2>
+    <style>
+        #example3 .box1 {
+            width: 100px;
+            flex-grow: 1;
+        }
+        #example3 .box2 {
+            width: 150px;
+            flex-grow: 2;
+        }
+        #example3 .box3 {
+            width: 200px;
+            flex-grow: 3;
+        }
+    </style>
+
+    <div class="container">
+        <div class="box box1">
+            <p>本身宽度 100px</p>
+            <p>增加宽度 25px</p>
+            <p>flex-grow: 1</p>
+        </div>
+        <div class="box box2">
+            <p>本身宽度 150px</p>
+            <p>增加宽度 50px</p>
+            <p>flex-grow: 2</p>
+        </div>
+        <div class="box box3">
+            <p>本身宽度 200px</p>
+            <p>增加宽度 75px</p>
+            <p>flex-grow: 3</p>
+        </div>
+    </div>
+
+    <p>伸计算公式</p>
+    <p>宽度 = 本身宽度 + 增加（伸）宽度</p>
+    <p>
+        增加（伸）宽度 = 每一个元素增加的量等于多余的部分除以所有元素总的flex-grow值然后再乘以当前元素的flex-grow值
+    </p>
+    <p>
+        box1 增加（伸）宽度 = （150 / 6）* 1 = 25
+    </p>
+    <p>
+        box1 宽度 = 本身宽度 100 + 增加（伸）宽度 50 = 150
+    </p>
+    <p>
+        box2 增加（伸）宽度 = （150 / 6）* 2 = 50
+    </p>
+    <p>
+        box2 宽度 = 本身宽度 150 + 增加（伸）宽度 25 = 175
+    </p>
+    <p>
+        box3 增加（伸）宽度 = （150 / 6）* 3 = 75
+    </p>
+    <p>
+        box3 宽度 = 本身宽度 200 + 增加（伸）宽度 75 = 275
+    </p>
+</div>
+
+
+</body>
+</html>

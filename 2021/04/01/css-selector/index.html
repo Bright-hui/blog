@@ -31,6 +31,7 @@
   <script src="//cdn.bootcdn.net/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
   <script src="//cdn.bootcdn.net/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
   <script src="/blog/js/iframe-parent.js"></script>
+  <script src="/blog/libs/iframeResizer.js"></script>
 
   <script>
   var _hmt = _hmt || [];
@@ -118,19 +119,19 @@
         <a href="/blog/archives" class="header-toolbar-left"><i
                   class="fa fa-file-text"></i> Posts </a>
         <a href="/blog/archives"
-           class="header-toolbar-right"> 19 </a>
+           class="header-toolbar-right"> 21 </a>
       </li>
       <li>
         <a href="/blog/tags" class="header-toolbar-left"><i
                   class="fa fa-tags"></i> Tags </a>
         <a href="/blog/tags"
-           class="header-toolbar-right"> 23 </a>
+           class="header-toolbar-right"> 25 </a>
       </li>
       <li>
         <a href="/blog/categories" class="header-toolbar-left"><i
                   class="fa fa-folder-open"></i> Categories </a>
         <a href="/blog/categories"
-           class="header-toolbar-right"> 9 </a>
+           class="header-toolbar-right"> 10 </a>
       </li>
     </ul>
     <h2 class="header-title">
@@ -292,6 +293,9 @@
         },
         ready: function() {
             // document.getElementById('loading-container').remove();
+
+            iFrameResize({log:false});
+
         }
     });
 </script>

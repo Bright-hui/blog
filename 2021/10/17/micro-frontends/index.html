@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    小小微前端 | Bright Hui
+  </title>
+  <meta name="description" content="Bright Hui">
+  
+  <meta name="keywords" content="
+  micro-frontends react vue
+  ">
+  
+  <meta name="author" content="Bright Hui">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/blog/css/main.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="//cdn.bootcdn.net/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdn.bootcdn.net/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="/blog/js/iframe-parent.js"></script>
+  <script src="/blog/libs/iframeResizer.js"></script>
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?a6068561fcfd162c7f8d61c2af7ceeff";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+</head>
+
+<body id="replica-app">
+<!--<div class="loading-container" id="loading-container">
+    <style>
+        html, body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .loading-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #6a737d;
+            z-index: 9999;
+        }
+    </style>
+    <div>loading....</div>
+</div>
+-->
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/blog/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/blog/archives">Archives</a></li>
+        
+        
+        <li><a href="/blog/categories">Categories</a></li>
+        
+        
+        <li><a href="/blog/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/blog/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://z3.ax1x.com/2021/10/02/4HzCZD.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/blog/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/blog/archives"
+           class="header-toolbar-right"> 21 </a>
+      </li>
+      <li>
+        <a href="/blog/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/blog/tags"
+           class="header-toolbar-right"> 25 </a>
+      </li>
+      <li>
+        <a href="/blog/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/blog/categories"
+           class="header-toolbar-right"> 10 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/blog/">Bright Hui</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Bright Hui
+
+    <span class="post-date float-right" title="{{moment(1634453186000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1634453186000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>小小微前端</h1>
+    <h2 id="老大的问题"><a href="#老大的问题" class="headerlink" title="老大的问题"></a>老大的问题</h2><p>今天看到老大在那愁眉苦脸，就好奇的问了一下</p>
+<div style="text-align: center;">
+<img style="width: 30%;margin: 0 auto;" src="/blog/images/1.jpeg" />
+</div>
+
+<p>最近有一个多团队合作的项目 ，我们现在的项目是基于vue框架实现的，但是有好几个复杂页面之前是其他团队用react实现的， 如果能直接在vue项目里直接用使用react页面，开发时间会大大节省！</p>
+<p>我觉得一个看起来好像很简单的问题，就脱口而出为什么不用iframe， 老大就在主页面操作了一遍，加载了一个带参数的iframe页面，立刻刷新了一下主页面，iframe状态就丢失了</p>
+<p>还有一个iframe窗口弹框的问题没法全屏的问题, 高度还需要自适应，又说了一堆巴拉巴拉的问题，通信麻烦啊，子页面通知关闭主页面啊，跳转等等</p>
+<div style="text-align: center;">
+<img style="width: 30%;margin: 0 auto;" src="/blog/images/2.jpeg" />
+</div> 
+
+
+<p>看到这个问题这么复杂，我就跟老大信誓旦旦的说，相信你能搞定的！</p>
+<div style="text-align: center;">
+<img style="width: 30%;margin: 0 auto;" src="/blog/images/3.jpeg" />
+</div> 
+
+
+<p>回来赶紧问了我的闺蜜技术团，发现并没有什么用，再去找找不知道哪天加入的技术qq一堆群，巴拉巴拉描述了一下，有一个大🐮说出我人生第一次听到的词：<strong>微前端</strong></p>
+<p>这位大牛说他在京东，赶紧问了京豆富裕不富裕，偏题了， 给了我一个网址： <a target="_blank" rel="noopener" href="https://cangdu.org/micro-app/">https://cangdu.org/micro-app/</a></p>
+<p>看了一圈文档，现在我用我的视角来学习这个概念和框架</p>
+<h2 id="最小demo"><a href="#最小demo" class="headerlink" title="最小demo"></a>最小demo</h2><iframe src="/blog/examples/micro-frontends/demo1.html" width="100%" scrolling=no frameborder="0"></iframe>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--src</span><br><span class="line">    ---pages/</span><br><span class="line">        ---Home.jsx</span><br><span class="line">        ---Page1.jsx 原生js应用页面</span><br><span class="line">        ---Page2.jsx react脚手架应用页面</span><br><span class="line">        ---Page3.jsx vue脚手架应用页面</span><br><span class="line">    ---App.jsx 主应用</span><br><span class="line">    ---index.css</span><br><span class="line">    ---index.js    </span><br></pre></td></tr></table></figure>
+
+<p><strong>src/index.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> microApp <span class="keyword">from</span> <span class="string">&#x27;@micro-zoe/micro-app&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">&#x27;react-dom&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App&#x27;</span>;</span><br><span class="line"></span><br><span class="line">microApp.start();</span><br><span class="line"></span><br><span class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span></span>, <span class="built_in">document</span>.getElementById(<span class="string">&#x27;root&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>src/App.jsx</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;BrowserRouter <span class="keyword">as</span> Router, Switch, Route, Link&#125; <span class="keyword">from</span> <span class="string">&quot;react-router-dom&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> Home <span class="keyword">from</span> <span class="string">&#x27;./pages/Home&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Page1 <span class="keyword">from</span> <span class="string">&#x27;./pages/Page1&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Page2 <span class="keyword">from</span> <span class="string">&#x27;./pages/Page2&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Page3 <span class="keyword">from</span> <span class="string">&#x27;./pages/Page3&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">Router</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">nav</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">className</span>=<span class="string">&quot;nav-list&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&quot;/&quot;</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&quot;/page1&quot;</span>&gt;</span>Page1<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&quot;/page2&quot;</span>&gt;</span>Page2<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&quot;/page3&quot;</span>&gt;</span>Page3<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">Switch</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">Route</span> <span class="attr">exact</span> <span class="attr">path</span>=<span class="string">&quot;/&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">Home</span> /&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/page1&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">Page1</span> /&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/page2&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">Page2</span> /&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/page3&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">Page3</span> /&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;/<span class="name">Switch</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">Router</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>src/pages/Page1.jsx</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Page = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;page&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">micro-app</span> <span class="attr">name</span>=<span class="string">&#x27;app1&#x27;</span> <span class="attr">url</span>=<span class="string">&quot;http://127.0.0.1:8080/app1&quot;</span> <span class="attr">baseroute</span>=<span class="string">&#x27;/&#x27;</span>/&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Page;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>src/pages/Page2.jsx</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Page = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;page&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">micro-app</span> <span class="attr">name</span>=<span class="string">&#x27;app1&#x27;</span> <span class="attr">url</span>=<span class="string">&quot;http://127.0.0.1:8080/app2&quot;</span> <span class="attr">baseroute</span>=<span class="string">&#x27;/&#x27;</span>/&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Page;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>src/pages/Page3.jsx</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Page = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;page&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">micro-app</span> <span class="attr">name</span>=<span class="string">&#x27;app1&#x27;</span> <span class="attr">url</span>=<span class="string">&quot;http://127.0.0.1:8080/app2&quot;</span> <span class="attr">baseroute</span>=<span class="string">&#x27;/&#x27;</span>/&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Page;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h1><h2 id="样式隔离"><a href="#样式隔离" class="headerlink" title="样式隔离"></a>样式隔离</h2><p>因为每个项目都有全局的样式配置，我自己设置了一下app1 的body，经过验证，框架把body的样式转到micro-app节点上了</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">micro-app<span class="selector-attr">[name=app1]</span> micro-app-<span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#1e6823</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">micro-app<span class="selector-attr">[name=app1]</span> <span class="selector-id">#app</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: Avenir, Helvetica, Arial, sans-serif;</span><br><span class="line">    -webkit-<span class="attribute">font-smoothing</span>: antialiased;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">rgb</span>(<span class="number">44</span>, <span class="number">62</span>, <span class="number">80</span>);</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就实现了每个项目的样式隔离了</p>
+<h2 id="全局变量window隔离"><a href="#全局变量window隔离" class="headerlink" title="全局变量window隔离"></a>全局变量window隔离</h2><p>因为每个项目都会乱用window，一不小心就冲突覆盖率，欲哭无泪找bug</p>
+<p>经过高人指点，大概理解的意思是下面的代码，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SnapshotSandbox</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.proxy = <span class="built_in">window</span>; <span class="comment">// window属性</span></span><br><span class="line">        <span class="built_in">this</span>.modifyPropsMap = &#123;&#125;; <span class="comment">// 记录在window上的修改</span></span><br><span class="line">        <span class="built_in">this</span>.active(); <span class="comment">// 激活</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">active</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.windowSnapshot = &#123;&#125;; <span class="comment">// 拍照</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> prop <span class="keyword">in</span> <span class="built_in">window</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">window</span>.hasOwnProperty(prop)) &#123;</span><br><span class="line">                <span class="built_in">this</span>.windowSnapshot[prop] = <span class="built_in">window</span>[prop];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">Object</span>.keys(<span class="built_in">this</span>.modifyPropsMap).forEach(<span class="function">(<span class="params">p</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">window</span>[p] = <span class="built_in">this</span>.modifyPropsMap[p];</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">inactive</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="comment">// 失活</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> prop <span class="keyword">in</span> <span class="built_in">window</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">window</span>.hasOwnProperty(prop)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">window</span>[prop] !== <span class="built_in">this</span>.windowSnapshot[prop]) &#123;</span><br><span class="line">                    <span class="built_in">this</span>.modifyPropsMap[prop] = <span class="built_in">window</span>[prop];</span><br><span class="line">                    <span class="built_in">window</span>[prop] = <span class="built_in">this</span>.windowSnapshot[prop];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sandbox = <span class="keyword">new</span> SnapshotSandbox();</span><br><span class="line"></span><br><span class="line">(<span class="function">(<span class="params"><span class="built_in">window</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.a = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">window</span>.b = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">window</span>.a, <span class="built_in">window</span>.b);</span><br><span class="line">    sandbox.inactive();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">window</span>.a, <span class="built_in">window</span>.b);</span><br><span class="line">    sandbox.active();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">window</span>.a, <span class="built_in">window</span>.b);</span><br><span class="line">&#125;)(sandbox.proxy);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><h3 id="app1子应用里"><a href="#app1子应用里" class="headerlink" title="app1子应用里"></a>app1子应用里</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> container = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;app&#x27;</span>);</span><br><span class="line">    container.innerHTML = <span class="string">&#x27;无框架原生应用&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;app1 mounted&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;unmount&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 卸载应用</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;app1 unmount&#x27;</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<h2 id="数据通信"><a href="#数据通信" class="headerlink" title="数据通信"></a>数据通信</h2><p>主应用和子应用之间的通信</p>
+<h3 id="主应用-gt-子应用"><a href="#主应用-gt-子应用" class="headerlink" title="主应用 ==&gt; 子应用"></a>主应用 ==&gt; 子应用</h3><h4 id="1-主应用通过props传递给子应用"><a href="#1-主应用通过props传递给子应用" class="headerlink" title="1. 主应用通过props传递给子应用"></a>1. 主应用通过props传递给子应用</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">micro-app</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">&#x27;app1&#x27;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">url</span>=<span class="string">&#x27;xx&#x27;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data</span>=<span class="string">&#123;this.state.dataxx&#125;</span> // <span class="attr">data</span>只接受对象类型，采用严格对比(===<span class="string">)，当传入新的data对象时会重新发送</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>子应用获取数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.microApp?.getData() <span class="comment">// 返回data数据</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="2-主动发送-send-数据"><a href="#2-主动发送-send-数据" class="headerlink" title="2. 主动发送 send 数据"></a>2. 主动发送 send 数据</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> microApp <span class="keyword">from</span> <span class="string">&#x27;@micro-zoe/micro-app&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 发送数据给子应用 my-app</span></span><br><span class="line">microApp.setData(<span class="string">&#x27;app1&#x27;</span>, &#123;<span class="attr">type</span>: <span class="string">&#x27;新的数据&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>子应用监听数据变化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dataListener</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;来自基座应用的数据&#x27;</span>, data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 绑定监听函数</span></span><br><span class="line"><span class="comment"> * dataListener: 绑定函数</span></span><br><span class="line"><span class="comment"> * autoTrigger: 在初次绑定监听函数时有缓存数据，是否需要主动触发一次，默认为false</span></span><br><span class="line"><span class="comment"> * 补充: autoTrigger主要是为子应用提供的，因为子应用是异步渲染的，如果在子应用还没渲染时基座应用发送数据，子应用在初始化后不会触发绑定函数，但这个数据会放入缓存中，此时可以设置autoTrigger为true主动触发一次监听函数来获取数据。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">window</span>.microApp?.addDataListener(dataListener: <span class="built_in">Function</span>, autoTrigger?: boolean)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解绑指定函数</span></span><br><span class="line"><span class="built_in">window</span>.microApp?.removeDataListener(dataListener)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 清空当前子应用的所有绑定函数(全局数据函数除外)</span></span><br><span class="line"><span class="built_in">window</span>.microApp?.clearDataListener()</span><br></pre></td></tr></table></figure>
+
+<h3 id="子应用-gt-主应用"><a href="#子应用-gt-主应用" class="headerlink" title="子应用 ==&gt; 主应用"></a>子应用 ==&gt; 主应用</h3><p>子应用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.microApp?.dispatch(&#123;<span class="attr">type</span>: <span class="string">&#x27;子应用发送的数据&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>主应用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;micro-app</span><br><span class="line">  name=<span class="string">&#x27;my-app&#x27;</span></span><br><span class="line">  url=<span class="string">&#x27;xx&#x27;</span></span><br><span class="line">  data=&#123;<span class="built_in">this</span>.state.dataxx&#125;</span><br><span class="line">  <span class="comment">// 数据在event.detail.data字段中，子应用每次发送数据都会重新触发事件</span></span><br><span class="line">  <span class="comment">// onDataChange函数在子应用卸载时会自动解绑，不需要手动处理</span></span><br><span class="line">  onDataChange=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span> <span class="built_in">console</span>.log(e.detail.data)&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>micro-app 依赖于 CustomElements 和 Proxy</p>
+<p>但是Proxy暂时没有做兼容，所以对于不支持Proxy的浏览器无法运行micro-app。</p>
+<p>总体如下：</p>
+<p>PC端：除了IE浏览器，其它浏览器基本兼容。<br>移动端：ios10+、android5+</p>
+<h2 id="有话要说"><a href="#有话要说" class="headerlink" title="有话要说"></a>有话要说</h2><p>看起来经过这一系列的折腾，好像可以解决最早遇到的问题了，但是以我多年的经验，一定会遇到更多奇奇怪怪的问题</p>
+<div style="text-align: center;">
+<img style="width: 30%;margin: 0 auto;" src="/blog/images/20200214120311_sbpjb.jpeg" />
+</div>
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://bright-hui.github.io/blog" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2021 Bright Hui</li>
+      <li><a href="https://bright-hui.github.io/blog">Home</a></li>
+      
+      <li><a href="weibo">Weibo</a></li>
+      
+    </ul>
+    </ul>
+
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<!--<script src="/blog/js/main.js"></script>-->
+<script>
+    new Vue({
+        el: '#replica-app',
+        data: {
+            moment: moment
+        },
+        ready: function() {
+            // document.getElementById('loading-container').remove();
+
+            iFrameResize({log:false});
+
+        }
+    });
+</script>
+
+
+</body>
+</html>

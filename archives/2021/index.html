@@ -27,6 +27,7 @@
   <script src="//cdn.bootcdn.net/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
   <script src="//cdn.bootcdn.net/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
   <script src="/blog/js/iframe-parent.js"></script>
+  <script src="/blog/libs/iframeResizer.js"></script>
 
   <script>
   var _hmt = _hmt || [];
@@ -204,7 +205,7 @@
         <svg style="position: relative;top: 4px;"  aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-repo UnderlineNav-octicon hide-sm">
           <path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path>
         </svg>
-        Posts <span class="counter">19</span>
+        Posts <span class="counter">21</span>
       </a>
     </li>
     <li class="">
@@ -214,7 +215,7 @@
         </svg>
         Categories <span
                 class="counter">
-          9</span>
+          10</span>
 
       </a></li>
     <li class="">
@@ -222,12 +223,65 @@
         <svg style="position: relative;top: 4px;" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-package UnderlineNav-octicon hide-sm">
           <path fill-rule="evenodd" d="M8.878.392a1.75 1.75 0 00-1.756 0l-5.25 3.045A1.75 1.75 0 001 4.951v6.098c0 .624.332 1.2.872 1.514l5.25 3.045a1.75 1.75 0 001.756 0l5.25-3.045c.54-.313.872-.89.872-1.514V4.951c0-.624-.332-1.2-.872-1.514L8.878.392zM7.875 1.69a.25.25 0 01.25 0l4.63 2.685L8 7.133 3.245 4.375l4.63-2.685zM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432L2.5 5.677zm6.25 8.271l4.625-2.683a.25.25 0 00.125-.216V5.677L8.75 8.432v5.516z"></path>
         </svg>
-        Tags <span class="counter">23</span></a></li>
+        Tags <span class="counter">25</span></a></li>
   </ul>
 </nav>
 
     <div class="body-secondary">
       <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2021/10/22/flex/">Flex 伸缩规则</a></h2>
+          <p>
+               起因  研究这个的起因是最近工作中大量使用flex布局，特别是在移动端，然后我们的产品经理不知道哪里研究的适配规则，让我应接不暇 
+ 一会按照比例自适应，一会又说在某个手机上缩的有点小 
+   
+ 不过最后想了想，平时对flex布局就只会用一列和 固定宽度和自适应一个的 情况 今天又去翻了翻f...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/css/">css</a></li>
+            
+            <li class="tag-list-item"><a href="/blog/tags/flex/">flex</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/blog/categories/CSS/"><i class="fa fa-folder-open"></i> CSS</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 2 </span>
+            <span>Published {{moment(1634899586000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/blog/2021/10/17/micro-frontends/">小小微前端</a></h2>
+          <p>
+               老大的问题  今天看到老大在那愁眉苦脸，就好奇的问了一下 
+ 
+ 
+ 
+
+ 最近有一个多团队合作的项目 ，我们现在的项目是基于vue框架实现的，但是有好几个复杂页面之前是其他团队用react实现的， 如果能直接在vue项目里直接用使用react页面，开发时间会大大节省！ 
+ 我觉得一个看起来好...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/blog/tags/micro-frontends-react-vue/">micro-frontends react vue</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/blog/categories/Framework/"><i class="fa fa-folder-open"></i> Framework</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1634453186000).fromNow()}}</span>
+          </div>
+        </li>
         
         <li class="archive-list-item">
           <h2><a href="/blog/2021/09/11/lottie/">Lottie - 让动画的实现变得如此简单</a></h2>
@@ -702,6 +756,9 @@
         },
         ready: function() {
             // document.getElementById('loading-container').remove();
+
+            iFrameResize({log:false});
+
         }
     });
 </script>
