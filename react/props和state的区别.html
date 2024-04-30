@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>props和state的区别 | 我的博客</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="XXX">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b6b82f87.css" as="style"><link rel="preload" href="/blog/assets/js/app.4a888688.js" as="script"><link rel="preload" href="/blog/assets/js/2.778bb4ad.js" as="script"><link rel="preload" href="/blog/assets/js/1.f8bb34da.js" as="script"><link rel="preload" href="/blog/assets/js/34.8abfb81a.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.fde088a2.js"><link rel="prefetch" href="/blog/assets/js/11.c62b6b34.js"><link rel="prefetch" href="/blog/assets/js/12.27d4f152.js"><link rel="prefetch" href="/blog/assets/js/13.3f3f6a36.js"><link rel="prefetch" href="/blog/assets/js/14.eb7a3d07.js"><link rel="prefetch" href="/blog/assets/js/15.114dfd5c.js"><link rel="prefetch" href="/blog/assets/js/16.85253907.js"><link rel="prefetch" href="/blog/assets/js/17.c2838453.js"><link rel="prefetch" href="/blog/assets/js/18.3256f17f.js"><link rel="prefetch" href="/blog/assets/js/19.d8afd0ae.js"><link rel="prefetch" href="/blog/assets/js/20.0d880388.js"><link rel="prefetch" href="/blog/assets/js/21.33b300c9.js"><link rel="prefetch" href="/blog/assets/js/22.cdf12110.js"><link rel="prefetch" href="/blog/assets/js/23.34a6a971.js"><link rel="prefetch" href="/blog/assets/js/24.54d351a2.js"><link rel="prefetch" href="/blog/assets/js/25.2f4e7b5e.js"><link rel="prefetch" href="/blog/assets/js/26.a095afe1.js"><link rel="prefetch" href="/blog/assets/js/27.c4b71bc9.js"><link rel="prefetch" href="/blog/assets/js/28.b3634c43.js"><link rel="prefetch" href="/blog/assets/js/29.cff1c9da.js"><link rel="prefetch" href="/blog/assets/js/3.af33e5d6.js"><link rel="prefetch" href="/blog/assets/js/30.305211d2.js"><link rel="prefetch" href="/blog/assets/js/31.87bd3ac8.js"><link rel="prefetch" href="/blog/assets/js/32.1b12a47d.js"><link rel="prefetch" href="/blog/assets/js/33.2705b057.js"><link rel="prefetch" href="/blog/assets/js/35.b11497ee.js"><link rel="prefetch" href="/blog/assets/js/36.038b783f.js"><link rel="prefetch" href="/blog/assets/js/4.45665f8a.js"><link rel="prefetch" href="/blog/assets/js/5.7098d77a.js"><link rel="prefetch" href="/blog/assets/js/6.0c0a0f39.js"><link rel="prefetch" href="/blog/assets/js/7.6a854e57.js"><link rel="prefetch" href="/blog/assets/js/vendors~docsearch.5e19b665.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b6b82f87.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">我的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/blog/" class="sidebar-heading clickable router-link-active"><span>欢迎~</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/" aria-current="page" class="sidebar-link">博客简介</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/js/箭头函数与普通函数" class="sidebar-heading clickable"><span>js</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/react/props和state的区别" class="sidebar-heading clickable open active"><span>react</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/react/props和state的区别.html" class="active sidebar-link">props和state的区别</a></li><li><a href="/blog/react/hooks.html" class="sidebar-link">hooks</a></li><li><a href="/blog/react/hoc.html" class="sidebar-link">hoc</a></li><li><a href="/blog/react/开发过程中，哪些数据要声明为state变量.html" class="sidebar-link">在开发过程中，哪些数据要声明为state变量</a></li><li><a href="/blog/react/为什么在react中不推荐直接修改state.html" class="sidebar-link">为什么在react中不推荐直接修改state</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="props和state的区别"><a href="#props和state的区别" class="header-anchor">#</a> props和state的区别</h1> <ol><li>props 传递的参数到函数。比如form 传递color 到button组件。</li> <li>state 是组件的数据。它可以让组件对一些信息保持追踪。比如button按钮记录点击次数
+思考？ 父组件通过，props 传递给子组件,但是props的值每次都需要计算。再展示在页面中。重新计算的这个逻辑应该放在哪里？</li></ol> <div class="language- extra-class"><pre class="language-text"><code>function Avatar({ person, size }) {
+  let thumbnailSize = 's';
+  if (size * ratio &gt; 90) {
+    thumbnailSize = 'b';
+  }
+  return (
+    &lt;img
+      className=&quot;avatar&quot;
+      src={getImageUrl(person, thumbnailSize)}
+      alt={person.name}
+      width={size}
+      height={size}
+    /&gt;
+  );
+}
+</code></pre></div><p>Props 可以让你将这样的逻辑封装在 Avatar 组件中（并在需要时进行更改），以便每个人都可以使用 Avatar 组件，而不必考虑如何请求和调整图像大小。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/js/localStorage与sessionStorage.html" class="prev">
+        localStorage 与 sessionStorage
+      </a></span> <span class="next"><a href="/blog/react/hooks.html">
+        hooks
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.4a888688.js" defer></script><script src="/blog/assets/js/2.778bb4ad.js" defer></script><script src="/blog/assets/js/1.f8bb34da.js" defer></script><script src="/blog/assets/js/34.8abfb81a.js" defer></script>
+  </body>
+</html>
