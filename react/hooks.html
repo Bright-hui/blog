@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>react hooks 诞生的原因是什么？解决了什么问题 | 我的博客</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="XXX">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b6b82f87.css" as="style"><link rel="preload" href="/blog/assets/js/app.7d1144aa.js" as="script"><link rel="preload" href="/blog/assets/js/2.778bb4ad.js" as="script"><link rel="preload" href="/blog/assets/js/1.f8bb34da.js" as="script"><link rel="preload" href="/blog/assets/js/33.ee501311.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.fde088a2.js"><link rel="prefetch" href="/blog/assets/js/11.c62b6b34.js"><link rel="prefetch" href="/blog/assets/js/12.27d4f152.js"><link rel="prefetch" href="/blog/assets/js/13.3f3f6a36.js"><link rel="prefetch" href="/blog/assets/js/14.eb7a3d07.js"><link rel="prefetch" href="/blog/assets/js/15.114dfd5c.js"><link rel="prefetch" href="/blog/assets/js/16.85253907.js"><link rel="prefetch" href="/blog/assets/js/17.c2838453.js"><link rel="prefetch" href="/blog/assets/js/18.3256f17f.js"><link rel="prefetch" href="/blog/assets/js/19.d8afd0ae.js"><link rel="prefetch" href="/blog/assets/js/20.0d880388.js"><link rel="prefetch" href="/blog/assets/js/21.33b300c9.js"><link rel="prefetch" href="/blog/assets/js/22.97e75810.js"><link rel="prefetch" href="/blog/assets/js/23.34a6a971.js"><link rel="prefetch" href="/blog/assets/js/24.54d351a2.js"><link rel="prefetch" href="/blog/assets/js/25.2f4e7b5e.js"><link rel="prefetch" href="/blog/assets/js/26.5b87ee08.js"><link rel="prefetch" href="/blog/assets/js/27.082aa7a5.js"><link rel="prefetch" href="/blog/assets/js/28.824eb18f.js"><link rel="prefetch" href="/blog/assets/js/29.f1577149.js"><link rel="prefetch" href="/blog/assets/js/3.af33e5d6.js"><link rel="prefetch" href="/blog/assets/js/30.5f07ea14.js"><link rel="prefetch" href="/blog/assets/js/31.acd3b298.js"><link rel="prefetch" href="/blog/assets/js/32.08a31bcb.js"><link rel="prefetch" href="/blog/assets/js/34.27f32d08.js"><link rel="prefetch" href="/blog/assets/js/35.dd1b484d.js"><link rel="prefetch" href="/blog/assets/js/36.50e8ccd4.js"><link rel="prefetch" href="/blog/assets/js/4.45665f8a.js"><link rel="prefetch" href="/blog/assets/js/5.7098d77a.js"><link rel="prefetch" href="/blog/assets/js/6.0c0a0f39.js"><link rel="prefetch" href="/blog/assets/js/7.6a854e57.js"><link rel="prefetch" href="/blog/assets/js/vendors~docsearch.5e19b665.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b6b82f87.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">我的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/blog/" class="sidebar-heading clickable router-link-active"><span>欢迎~</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/" aria-current="page" class="sidebar-link">博客简介</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/js/箭头函数与普通函数" class="sidebar-heading clickable"><span>js</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/react/props和state的区别" class="sidebar-heading clickable open"><span>react</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/react/props和state的区别.html" class="sidebar-link">props和state的区别</a></li><li><a href="/blog/react/hooks.html" aria-current="page" class="active sidebar-link">hooks</a></li><li><a href="/blog/react/hoc.html" class="sidebar-link">hoc</a></li><li><a href="/blog/react/开发过程中，哪些数据要声明为state变量.html" class="sidebar-link">在开发过程中，哪些数据要声明为state变量</a></li><li><a href="/blog/react/为什么在react中不推荐直接修改state.html" class="sidebar-link">为什么在react中不推荐直接修改state</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="react-hooks-诞生的原因是什么-解决了什么问题"><a href="#react-hooks-诞生的原因是什么-解决了什么问题" class="header-anchor">#</a> react hooks 诞生的原因是什么？解决了什么问题</h1> <ol><li><p>复杂组件逻辑难以复用
+在react 16.8 之前，如果想要在多个组件之间复用一些状态逻辑，我们会想到高阶组件HOC 或者渲染属性render props等模式。这些模式可以工作，但是这些模式会使得组件层次嵌套比较深，难以理解。</p></li> <li><p>难以理解的类组件
+类组件让许多开发者感到困惑，特别是对于初学者来说，需要理解js关键字的工作方式，以及如何正确地绑定事件处理方法。此外类组件生命周期方法经常让人头疼，尤其是当需要在不同生命周期方法中进行相同逻辑处理时。</p></li> <li><p>副作用代码分散
+在类组件中，相关的业务逻辑代码往往被分散在多个生命周期方法中（比如componentDidMount 和 componentDidUpdate）中都需要进行数据的加载操作，这使得逻辑难以追踪和维护</p></li></ol> <p>hooks的引入解决了这些问题，提供了一种更简单、更直观的方式来使用react 的特性，而不需要编写类。并且在不改变组件的层次的情况下，做到逻辑复用</p> <h1 id="react-hooks-存在的闭包问题"><a href="#react-hooks-存在的闭包问题" class="header-anchor">#</a> react hooks 存在的闭包问题</h1> <p>hooks的闭包问题通常是由于函数组件的局部变量在创建时捕获了特定的作用域状态，而当这个函数组件重新渲染时，这些不活状态已经过时。这就导致了函数内部的事件处理器或者效果引用的状态不是最新的状态。</p> <div class="language- extra-class"><pre class="language-text"><code>function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() =&gt; {
+    const intervalId = setInterval(() =&gt; {
+      // 这里的count值是这个闭包创建时的值，而不是最新的count值
+      console.log(count);
+    }, 1000);
+
+    return () =&gt; clearInterval(intervalId);
+  }, []); // 空依赖数组意味着effect只会在挂载时运行
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Click me&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre></div><p>上面的代码中，setInterval的回调函数引用的count值是useEffect运行时的count值，而当点击按钮更新count时，定时器中的闭包并不会获取更新后的count值
+<strong>解决方案</strong></p> <ol><li>使用最新的状态</li></ol> <div class="language- extra-class"><pre class="language-text"><code>setCount((currentCount) =&gt; currentCount + 1);
+
+</code></pre></div><ol start="2"><li>使用引用（useRef）</li></ol> <div class="language- extra-class"><pre class="language-text"><code>const countRef = useRef(count);
+countRef.current = count;
+
+useEffect(() =&gt; {
+  const intervalId = setInterval(() =&gt; {
+    // 使用countRef.current总是获取到最新的count值
+    console.log(countRef.current);
+  }, 1000);
+
+  return () =&gt; clearInterval(intervalId);
+}, []);
+
+</code></pre></div><ol start="3"><li>在useEffect中包含所有依赖项</li></ol> <div class="language- extra-class"><pre class="language-text"><code>useEffect(() =&gt; {
+  // ...
+}, [count]); // count包含在依赖数组中，这样每次count更新时都会重新设置定时器
+
+</code></pre></div><h1 id="虚拟dom的优点"><a href="#虚拟dom的优点" class="header-anchor">#</a> 虚拟DOM的优点</h1> <p><strong>虚拟DOM本质上是一个JS对象</strong></p> <ol><li><p>虚拟DOM可以将多次DOM操作合并为一次操作
+eg: 比如你添加100个节点.原生js是一次一次操作的，虚拟DOM是一次操作。</p></li> <li><p>虚拟DOM借助DOM diff 可以把多余的操作省掉。
+eg:比如 页面上有990个，现在要添加10个节点。js直接操作 DOM 是把原来1000个全部放到新的DOM中。js没有办法区分哪些是新增的。</p></li></ol></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/react/props和state的区别.html" class="prev">
+        props和state的区别
+      </a></span> <span class="next"><a href="/blog/react/hoc.html">
+        hoc
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.7d1144aa.js" defer></script><script src="/blog/assets/js/2.778bb4ad.js" defer></script><script src="/blog/assets/js/1.f8bb34da.js" defer></script><script src="/blog/assets/js/33.ee501311.js" defer></script>
+  </body>
+</html>
